@@ -2,93 +2,75 @@
 
 #include <iostream>
 
-/// EXAMPLE SOURCE CLASS
-/// 
-/// used as member of example classes
-class CopyElisionExampleSourceClass
+#include "CopyElision.h"
+
+void CopyElisionExampleSourceClass::print()
 {
-public:
-	CopyElisionExampleSourceClass() = default;
-	CopyElisionExampleSourceClass(int num) : mNum{ num } {}
+	std::cout << mNum << std::endl;
+}
 
-	void print()
-	{
-		std::cout << mNum << std::endl;
-	}
-private:
-	int mNum;
-};
-
-
-/// EXAMPLE 1
-///
-/// goal is to make least copy and safety when setting member variables
-/// 
-class CopyElisionExampleClass_1
+/// call by value case
+void CopyElisionExampleClass_1::SetSource_Value(CopyElisionExampleSourceClass source)
 {
-public:
-	/// call by value case
-	void SetSource_Value(CopyElisionExampleSourceClass source)
-	{
-		/// 1 copy generated
-		/// ownership not changed
-		///
-		/// one for member assignment [mExampleSource]
-		mExampleSource = source;
+	/// 1 copy generated
+	/// ownership not changed
+	///
+	/// one for member assignment [mExampleSource]
+	mExampleSource = source;
 
-		/// 0 copy generated
-		/// ownership moved
-		mExampleSource = std::move(source);
-	}
-	/// call by lvalue reference case
-	void SetSource_LRef(CopyElisionExampleSourceClass& source)
-	{
-		/// 1 copy generated
-		/// ownership not changed
-		///
-		/// one for member assignment [mExampleSource]
-		mExampleSource = source;
+	/// 0 copy generated
+	/// ownership moved
+	mExampleSource = std::move(source);
+}
 
-		/// 0 copy generated
-		/// ownership moved
-		mExampleSource = std::move(source);
-	}
-	/// call by const lvalue reference case
-	void SetSource_LRefConst(const CopyElisionExampleSourceClass& source)
-	{
-		/// 1 copy generated
-		/// ownership not changed
-		///
-		/// one for member assignment [mExampleSource]
-		mExampleSource = source;
+/// call by lvalue reference case
+void CopyElisionExampleClass_1::SetSource_LRef(CopyElisionExampleSourceClass& source)
+{
+	/// 1 copy generated
+	/// ownership not changed
+	///
+	/// one for member assignment [mExampleSource]
+	mExampleSource = source;
 
-		/// 1 copy generated
-		/// ownership not changed
-		/// 
-		/// one for member assignment [mExampleSource]
-		mExampleSource = std::move(source);
-	}
-	/// call by rvalue reference case
-	void SetSource_RRef(CopyElisionExampleSourceClass&& source)
-	{
-		/// 1 copy generated
-		/// ownership not changed
-		///
-		/// one for member assignment [mExampleSource]
-		mExampleSource = source;
+	/// 0 copy generated
+	/// ownership moved
+	mExampleSource = std::move(source);
+}
 
-		/// 0 copy generated
-		/// original object's ownership changed
-		mExampleSource = std::move(source);
-	}
-private:
-	CopyElisionExampleSourceClass mExampleSource;
-};
+/// call by const lvalue reference case
+void CopyElisionExampleClass_1::SetSource_LRefConst(const CopyElisionExampleSourceClass& source)
+{
+	/// 1 copy generated
+	/// ownership not changed
+	///
+	/// one for member assignment [mExampleSource]
+	mExampleSource = source;
+
+	/// 1 copy generated
+	/// ownership not changed
+	/// 
+	/// one for member assignment [mExampleSource]
+	mExampleSource = std::move(source);
+}
+
+/// call by rvalue reference case
+void CopyElisionExampleClass_1::SetSource_RRef(CopyElisionExampleSourceClass&& source)
+{
+	/// 1 copy generated
+	/// ownership not changed
+	///
+	/// one for member assignment [mExampleSource]
+	mExampleSource = source;
+
+	/// 0 copy generated
+	/// original object's ownership changed
+	mExampleSource = std::move(source);
+}
 
 /// main function entry for this example
 /// 
 /// to execute example, call this function
-static void main_CopyElisionExample()
+void main_CopyElisionExample()
 {
 	CopyElisionExampleSourceClass sourceClass = CopyElisionExampleSourceClass(10);
 	CopyElisionExampleClass_1 copyElisionExampleClass;

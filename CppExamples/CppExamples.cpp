@@ -1,12 +1,12 @@
-﻿
+﻿#pragma once
 
-#include <iostream>
-
-#include "ClassMemorysize.cpp"
+#include "ClassMemorysize.h"
+#include "CopyElision.h"
+#include "FunctionRVO.h"
+#include "MembersInit.h"
+#include "OverloadingOperators.h"
 
 int main()
 {
-    SizeExampleClass_2 stackCharacter;
-     
-    std::cout << stackCharacter.GetSize() << std::endl;
+	main_OverloadingOperatorsExample();
 }

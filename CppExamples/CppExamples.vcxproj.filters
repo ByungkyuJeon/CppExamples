@@ -13,8 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\OOP">
+    <Filter Include="소스 파일\Private">
       <UniqueIdentifier>{94c08a15-a1ba-4610-9f69-94e799c16e71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Public">
+      <UniqueIdentifier>{041f98b1-c130-4878-a7b4-e317d5c290e9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -22,7 +25,36 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="ClassMemorySize.cpp">
-      <Filter>소스 파일\OOP</Filter>
+      <Filter>소스 파일\Private</Filter>
     </ClCompile>
+    <ClCompile Include="MembersInit.cpp">
+      <Filter>소스 파일\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="CopyElision.cpp">
+      <Filter>소스 파일\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="FunctionRVO.cpp">
+      <Filter>소스 파일\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="OverloadingOperators.cpp">
+      <Filter>소스 파일\Private</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ClassMemorySize.h">
+      <Filter>소스 파일\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="CopyElision.h">
+      <Filter>소스 파일\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="FunctionRVO.h">
+      <Filter>소스 파일\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="MembersInit.h">
+      <Filter>소스 파일\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="OverloadingOperators.h">
+      <Filter>소스 파일\Public</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

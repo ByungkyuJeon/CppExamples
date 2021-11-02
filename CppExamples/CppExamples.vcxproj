@@ -140,7 +140,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ClassMemorySize.cpp" />
+    <ClCompile Include="CopyElision.cpp" />
     <ClCompile Include="CppExamples.cpp" />
+    <ClCompile Include="FunctionRVO.cpp" />
+    <ClCompile Include="MembersInit.cpp" />
+    <ClCompile Include="OverloadingOperators.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ClassMemorySize.h" />
+    <ClInclude Include="CopyElision.h" />
+    <ClInclude Include="FunctionRVO.h" />
+    <ClInclude Include="MembersInit.h" />
+    <ClInclude Include="OverloadingOperators.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
