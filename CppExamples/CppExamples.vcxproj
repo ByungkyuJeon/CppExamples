@@ -142,6 +142,7 @@
     <ClCompile Include="ClassMemorySize.cpp" />
     <ClCompile Include="CopyElision.cpp" />
     <ClCompile Include="CppExamples.cpp" />
+    <ClCompile Include="ForLoop.cpp" />
     <ClCompile Include="FunctionRVO.cpp" />
     <ClCompile Include="MembersInit.cpp" />
     <ClCompile Include="OverloadingOperators.cpp" />
@@ -149,6 +150,7 @@
   <ItemGroup>
     <ClInclude Include="ClassMemorySize.h" />
     <ClInclude Include="CopyElision.h" />
+    <ClInclude Include="ForLoop.h" />
     <ClInclude Include="FunctionRVO.h" />
     <ClInclude Include="MembersInit.h" />
     <ClInclude Include="OverloadingOperators.h" />

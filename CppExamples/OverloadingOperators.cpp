@@ -6,34 +6,14 @@
 #include<vector>
 #include<algorithm>
 
-const std::string& OverloadingOperatorsExampleClass::GetName() const
+bool OverloadingOperatorsExampleClass::operator==(const OverloadingOperatorsExampleClass& other)
 {
-	return mName;
+	return (mX == other.GetX()) && (mY == other.GetY()) && (mZ == other.GetZ());
 }
 
-float OverloadingOperatorsExampleClass::GetX() const
+bool OverloadingOperatorsExampleClass::operator<(const OverloadingOperatorsExampleClass& other)
 {
-	return mX;
-}
-
-float OverloadingOperatorsExampleClass::GetY() const
-{
-	return mY;
-}
-
-float OverloadingOperatorsExampleClass::GetZ() const
-{
-	return mZ;
-}
-
-bool OverloadingOperatorsExampleClass::operator==(const OverloadingOperatorsExampleClass& rhs)
-{
-	return (mX == rhs.GetX()) && (mY == rhs.GetY()) && (mZ == GetZ());
-}
-
-bool OverloadingOperatorsExampleClass::operator<(const OverloadingOperatorsExampleClass& rhs)
-{
-	return (sqrtf(exp2f(mX) + exp2f(mY) + exp2f(mZ))) < (sqrtf(exp2f(rhs.GetX()) + exp2f(rhs.GetY()) + exp2f(rhs.GetZ())));
+	return (sqrtf(exp2f(mX) + exp2f(mY) + exp2f(mZ))) < (sqrtf(exp2f(other.GetX()) + exp2f(other.GetY()) + exp2f(other.GetZ())));
 }
 
 OverloadingOperatorsExampleClass operator+(const OverloadingOperatorsExampleClass& lhs, const OverloadingOperatorsExampleClass& rhs)
@@ -54,10 +34,10 @@ void main_OverloadingOperatorsExample()
 {
 	std::vector<OverloadingOperatorsExampleClass> exampleClass
 	{
-		{"example 1", 1, 2, 3},
-		{"example 2", 2, 3, 4},
-		{"example 3", 9, -1, -4},
-		{"example 4", 0, 2, 2}
+		{"example 1 : ", 1, 2, 3},
+		{"example 2 : ", 2, 3, 4},
+		{"example 3 : ", 9, -1, -4},
+		{"example 4 : ", 0, 2, 2}
 	};
 
 	for (auto exClass : exampleClass)
