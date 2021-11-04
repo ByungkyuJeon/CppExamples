@@ -6,6 +6,7 @@
 #include "MembersInit.h"
 #include "OverloadingOperators.h"
 #include "ForLoop.h"
+#include "SmartPointers.h"
 
 int main()
 {
@@ -20,4 +21,7 @@ int main()
 
 	/// 4. MembersInit Example
 	//main_MembersInitExample();
+
+	/// 5. Smart Pointers Example
+	main_SmartPointersExample();
 }

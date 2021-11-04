@@ -54,6 +54,9 @@
     <ClCompile Include="ForLoop.cpp">
       <Filter>소스 파일\Private\CppExamples</Filter>
     </ClCompile>
+    <ClCompile Include="SmartPointers.cpp">
+      <Filter>소스 파일\Private\CppExamples</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassMemorySize.h">
@@ -72,6 +75,9 @@
       <Filter>소스 파일\Public\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="ForLoop.h">
+      <Filter>소스 파일\Public\CppExamples</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartPointers.h">
       <Filter>소스 파일\Public\CppExamples</Filter>
     </ClInclude>
   </ItemGroup>

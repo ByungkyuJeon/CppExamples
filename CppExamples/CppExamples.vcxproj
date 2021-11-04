@@ -146,6 +146,7 @@
     <ClCompile Include="FunctionRVO.cpp" />
     <ClCompile Include="MembersInit.cpp" />
     <ClCompile Include="OverloadingOperators.cpp" />
+    <ClCompile Include="SmartPointers.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassMemorySize.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="FunctionRVO.h" />
     <ClInclude Include="MembersInit.h" />
     <ClInclude Include="OverloadingOperators.h" />
+    <ClInclude Include="SmartPointers.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
