@@ -10,9 +10,12 @@ bool operator<(int num, const StandardAlgorithmsExampleClass& rhs)
 	return num < rhs.GetIntVal();
 }
 
-StandardAlgorithmsExampleClass Sum(const StandardAlgorithmsExampleClass& lhs, const StandardAlgorithmsExampleClass& rhs)
+std::shared_ptr<StandardAlgorithmsExampleClass> Sum(std::shared_ptr<StandardAlgorithmsExampleClass> lhs, const StandardAlgorithmsExampleClass& rhs)
 {
-	return StandardAlgorithmsExampleClass{ lhs .GetIntVal() + rhs.GetIntVal(), lhs.GetDoubleVal() + rhs.GetDoubleVal()};
+	lhs->SetIntVal(lhs->GetIntVal() + rhs.GetIntVal());
+	lhs->SetDoubleVal(lhs->GetDoubleVal() + rhs.GetDoubleVal());
+	
+	return lhs;
 }
 
 bool DescendingCondition(const StandardAlgorithmsExampleClass& lhs, const StandardAlgorithmsExampleClass& rhs)
@@ -146,10 +149,9 @@ void main_StandardAlgorithmsExample()
 	/// 
 	/// 
 	std::cout << "--- accumulate ---" << std::endl;
-	auto sum = std::accumulate(exampleVector.begin(), exampleVector.end(), StandardAlgorithmsExampleClass{0, 0}, Sum);
+	auto sum = std::accumulate(exampleVector.begin(), exampleVector.end(), std::make_shared<StandardAlgorithmsExampleClass>(0, 0), Sum);
 	std::cout << "sum : "; 
-	sum.Print();
-	std::cout << std::endl;
-
+	sum->Print();
+	std::cout << "accumulation used shared pointer count : " << sum.use_count() << std::endl;
 
 }

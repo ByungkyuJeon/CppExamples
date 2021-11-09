@@ -12,6 +12,16 @@ public:
 
 	~StandardAlgorithmsExampleClass() noexcept {}
 
+	void SetIntVal(int num)
+	{
+		mInt = num;
+	}
+
+	void SetDoubleVal(double num)
+	{
+		mDouble = num;
+	}
+
 	int GetIntVal() const
 	{
 		return mInt;
@@ -55,7 +65,7 @@ private:
 
 bool operator<(int num, const StandardAlgorithmsExampleClass& rhs);
 
-StandardAlgorithmsExampleClass Sum(const StandardAlgorithmsExampleClass& lhs, const StandardAlgorithmsExampleClass& rhs);
+std::shared_ptr<StandardAlgorithmsExampleClass> Sum(std::shared_ptr<StandardAlgorithmsExampleClass> lhs, const StandardAlgorithmsExampleClass& rhs);
 
 bool DescendingCondition(const StandardAlgorithmsExampleClass& lhs, const StandardAlgorithmsExampleClass& rhs);
 
