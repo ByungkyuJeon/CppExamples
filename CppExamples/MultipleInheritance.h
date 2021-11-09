@@ -54,7 +54,7 @@ public:
 /// 2. base classes' member variable size
 /// 3. child class's virtual table address (4bytes on 32bit os, 8bytes on 64bit os)
 /// 4. child class's member variable size
-class MultipleInheritanceExampleClass_Child : public MultipleInheritanceExampleClass_Parent_1, MultipleInheritanceExampleClass_Parent_2
+class MultipleInheritanceExampleClass_Child : public MultipleInheritanceExampleClass_Parent_1, public MultipleInheritanceExampleClass_Parent_2
 											// public MultipleInheritanceExampleClass_Parent_2, MultipleInheritanceExampleClass_Parent_1
 {
 public:

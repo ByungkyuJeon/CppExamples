@@ -52,7 +52,7 @@ void main_ForLoopExample()
 	///
 	/// ranged for looping
 	std::cout << "--- ranged for looping ---" << std::endl;
-	for (auto exampleClass : exampleVector)
+	for (auto & exampleClass : exampleVector)
 	{
 		std::cout << exampleClass << std::endl;
 	}
@@ -125,7 +125,7 @@ void main_ForLoopExample()
 	exampleVector.reserve(sizeof(exampleVector) + sizeof(ForLoopExampleClass) * 10);
 	counter = 0;
 	std::cout << "--- ranged for loop ---" << std::endl;
-	for (auto exampleClass : exampleVector)
+	for (auto & exampleClass : exampleVector)
 	{
 		if (exampleClass.GetNum() == 3)
 		{

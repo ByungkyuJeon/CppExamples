@@ -57,6 +57,33 @@
     <ClCompile Include="SmartPointers.cpp">
       <Filter>소스 파일\Private\CppExamples</Filter>
     </ClCompile>
+    <ClCompile Include="LinearInheritance.cpp">
+      <Filter>소스 파일\Private\CppExamples</Filter>
+    </ClCompile>
+    <ClCompile Include="MultipleInheritance.cpp">
+      <Filter>소스 파일\Private\CppExamples</Filter>
+    </ClCompile>
+    <ClCompile Include="Diamondinheritance.cpp">
+      <Filter>소스 파일\Private\CppExamples</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectSlicing.cpp">
+      <Filter>소스 파일\Private\CppExamples</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicCasting.cpp">
+      <Filter>소스 파일\Private\CppExamples</Filter>
+    </ClCompile>
+    <ClCompile Include="VectorsArrays.cpp">
+      <Filter>소스 파일\Private\CppExamples</Filter>
+    </ClCompile>
+    <ClCompile Include="FunctionObject.cpp">
+      <Filter>소스 파일\Private\CppExamples</Filter>
+    </ClCompile>
+    <ClCompile Include="StandardAlgorithms.cpp">
+      <Filter>소스 파일\Private\CppExamples</Filter>
+    </ClCompile>
+    <ClCompile Include="SortingAlgorithms.cpp">
+      <Filter>소스 파일\Private\CppExamples</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassMemorySize.h">
@@ -78,6 +105,36 @@
       <Filter>소스 파일\Public\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="SmartPointers.h">
+      <Filter>소스 파일\Public\CppExamples</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearInheritance.h">
+      <Filter>소스 파일\Public\CppExamples</Filter>
+    </ClInclude>
+    <ClInclude Include="MultipleInheritance.h">
+      <Filter>소스 파일\Public\CppExamples</Filter>
+    </ClInclude>
+    <ClInclude Include="DiamondInheritance.h">
+      <Filter>소스 파일\Public\CppExamples</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectSlicing.h">
+      <Filter>소스 파일\Public\CppExamples</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicCasting.h">
+      <Filter>소스 파일\Public\CppExamples</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorsArrays.h">
+      <Filter>소스 파일\Public\CppExamples</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeChecker.h">
+      <Filter>소스 파일\Public\CppExamples</Filter>
+    </ClInclude>
+    <ClInclude Include="FunctionObject.h">
+      <Filter>소스 파일\Public\CppExamples</Filter>
+    </ClInclude>
+    <ClInclude Include="StandardAlgorithms.h">
+      <Filter>소스 파일\Public\CppExamples</Filter>
+    </ClInclude>
+    <ClInclude Include="SortingAlgorithms.h">
       <Filter>소스 파일\Public\CppExamples</Filter>
     </ClInclude>
   </ItemGroup>

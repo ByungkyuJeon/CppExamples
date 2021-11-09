@@ -142,20 +142,39 @@
     <ClCompile Include="ClassMemorySize.cpp" />
     <ClCompile Include="CopyElision.cpp" />
     <ClCompile Include="CppExamples.cpp" />
+    <ClCompile Include="Diamondinheritance.cpp" />
+    <ClCompile Include="DynamicCasting.cpp" />
     <ClCompile Include="ForLoop.cpp" />
+    <ClCompile Include="FunctionObject.cpp" />
     <ClCompile Include="FunctionRVO.cpp" />
+    <ClCompile Include="LinearInheritance.cpp" />
     <ClCompile Include="MembersInit.cpp" />
+    <ClCompile Include="MultipleInheritance.cpp" />
+    <ClCompile Include="ObjectSlicing.cpp" />
     <ClCompile Include="OverloadingOperators.cpp" />
     <ClCompile Include="SmartPointers.cpp" />
+    <ClCompile Include="SortingAlgorithms.cpp" />
+    <ClCompile Include="StandardAlgorithms.cpp" />
+    <ClCompile Include="VectorsArrays.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassMemorySize.h" />
     <ClInclude Include="CopyElision.h" />
+    <ClInclude Include="DiamondInheritance.h" />
+    <ClInclude Include="DynamicCasting.h" />
     <ClInclude Include="ForLoop.h" />
+    <ClInclude Include="FunctionObject.h" />
     <ClInclude Include="FunctionRVO.h" />
+    <ClInclude Include="LinearInheritance.h" />
     <ClInclude Include="MembersInit.h" />
+    <ClInclude Include="MultipleInheritance.h" />
+    <ClInclude Include="ObjectSlicing.h" />
     <ClInclude Include="OverloadingOperators.h" />
     <ClInclude Include="SmartPointers.h" />
+    <ClInclude Include="SortingAlgorithms.h" />
+    <ClInclude Include="StandardAlgorithms.h" />
+    <ClInclude Include="TimeChecker.h" />
+    <ClInclude Include="VectorsArrays.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

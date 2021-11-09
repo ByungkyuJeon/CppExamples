@@ -112,7 +112,7 @@ void main_VectorsArraysExample()
 				{
 					exampleVector[10];
 				})
-			<< " seconds" << std::endl;
+			<< " ms" << std::endl;
 
 		/// 2. Vector Insertion(or removal) at End
 		///
@@ -123,7 +123,7 @@ void main_VectorsArraysExample()
 					exampleVector.emplace_back(10);
 					// exampleVector.pop_back();
 				})
-			<< " seconds" << std::endl;
+			<< " ms" << std::endl;
 
 		/// 3. Vector Insertion(or removal) at Somewhere not End
 		///
@@ -135,7 +135,7 @@ void main_VectorsArraysExample()
 					exampleVector.emplace(exampleVector.begin(), 10);
 					//exampleVector.erase(exampleVector.begin() + 10);
 				})
-			<< " seconds" << std::endl;
+			<< " ms" << std::endl;
 
 		
 		
@@ -147,11 +147,12 @@ void main_VectorsArraysExample()
 			std::vector<int> exampleTemp;
 			std::cout << "vector's auto resizing time complexity :" << TimeChecker::CheckTime([&]()
 			{
-for (int addCount = 30; addCount > 0; addCount--)
-{
-	exampleTemp.emplace_back(10);
-}
-			}) << std::endl;
+				for (int addCount = 30; addCount > 0; addCount--)
+				{
+					exampleTemp.emplace_back(10);
+				}
+			}) 
+			<< " ms" << std::endl;
 		}
 
 		/// reserved
@@ -164,7 +165,8 @@ for (int addCount = 30; addCount > 0; addCount--)
 				{
 					exampleTemp.emplace_back(10);
 				}
-			}) << std::endl;
+			}) 
+			<< " ms" << std::endl;
 		}
 
 
@@ -267,4 +269,6 @@ for (int addCount = 30; addCount > 0; addCount--)
 			std::cout << elem << " ";
 		}
 	}
+
+
 }

@@ -31,10 +31,9 @@ void main_MultipleInheritanceExample()
 	}
 	/// initiating with parent 2
 	/// 
-	/// compiler error 
-	/// can not instanciate with secondly inherited base class
+	/// exampleClass's virtual table pointer address -> child class's virtual table
 	{
-		//std::unique_ptr<MultipleInheritanceExampleClass_Parent_2> exampleClass = std::make_unique<MultipleInheritanceExampleClass_Child>();
+		std::unique_ptr<MultipleInheritanceExampleClass_Parent_2> exampleClass = std::make_unique<MultipleInheritanceExampleClass_Child>();
 	}
 	/// initiating with child
 	/// 
