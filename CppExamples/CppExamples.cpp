@@ -15,6 +15,7 @@
 #include "VectorsArrays.h"
 #include "FunctionObject.h"
 #include "StandardAlgorithms.h"
+#include "SortingAlgorithms.h"
 
 int main()
 {
@@ -55,5 +56,8 @@ int main()
 	//main_FunctionObejctExample();
 
 	/// 13. StandardAlgorithmsExample
-	main_StandardAlgorithmsExample();
+	//main_StandardAlgorithmsExample();
+
+	/// 14. SortingAlgorithmsExample
+	//main_SortingAlgorithmsExample();
 }
