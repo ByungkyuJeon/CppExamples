@@ -28,7 +28,7 @@ source codes contains :
 
 ## Author
 
-**Jeon Byungkyu** - [Github](https://github.com/ByunkyuJun)
+**Jeon Byungkyu** - [Github](https://github.com/ByunkyuJeon)
 
 ## Contact
 
