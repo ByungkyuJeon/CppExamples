@@ -160,8 +160,10 @@
   <ItemGroup>
     <ClInclude Include="ClassMemorySize.h" />
     <ClInclude Include="CopyElision.h" />
+    <ClInclude Include="DataStructure.h" />
     <ClInclude Include="DiamondInheritance.h" />
     <ClInclude Include="DynamicCasting.h" />
+    <ClInclude Include="ExampleHelperClass.h" />
     <ClInclude Include="ForLoop.h" />
     <ClInclude Include="FunctionObject.h" />
     <ClInclude Include="FunctionRVO.h" />

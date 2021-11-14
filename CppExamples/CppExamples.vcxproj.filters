@@ -137,5 +137,11 @@
     <ClInclude Include="SortingAlgorithms.h">
       <Filter>소스 파일\Public\CppExamples</Filter>
     </ClInclude>
+    <ClInclude Include="ExampleHelperClass.h">
+      <Filter>소스 파일\Public\CppExamples</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStructure.h">
+      <Filter>소스 파일\Public\CppExamples</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -16,6 +16,7 @@
 #include "FunctionObject.h"
 #include "StandardAlgorithms.h"
 #include "SortingAlgorithms.h"
+#include "DataStructure.h"
 
 int main()
 {
@@ -60,4 +61,7 @@ int main()
 
 	/// 14. SortingAlgorithmsExample
 	//main_SortingAlgorithmsExample();
+
+	/// 15. DataStructureExample
+	main_DataStructureExample();
 }

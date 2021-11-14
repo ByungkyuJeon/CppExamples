@@ -143,7 +143,7 @@ void main_StandardAlgorithmsExample()
 	}
 
 
-	/// 4. Reduce
+	/// 4. Accumulate Function
 	/// 
 	/// 4.1 std::accumulate
 	/// 
@@ -154,4 +154,5 @@ void main_StandardAlgorithmsExample()
 	sum->Print();
 	std::cout << "accumulation used shared pointer count : " << sum.use_count() << std::endl;
 
+	
 }
