@@ -64,8 +64,5 @@ int main()
 	//main_SortingAlgorithmsExample();
 
 	/// 15. DataStructureExample
-	//main_DataStructureExample();
-
-	/// 16. StandardDataStructureExample
-	main_StandardDataStructure();
+	main_DataStructureExample();
 }
