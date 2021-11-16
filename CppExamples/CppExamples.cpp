@@ -17,6 +17,7 @@
 #include "StandardAlgorithms.h"
 #include "SortingAlgorithms.h"
 #include "DataStructure.h"
+#include "StandardDataStructure.h"
 
 int main()
 {
@@ -63,5 +64,8 @@ int main()
 	//main_SortingAlgorithmsExample();
 
 	/// 15. DataStructureExample
-	main_DataStructureExample();
+	//main_DataStructureExample();
+
+	/// 16. StandardDataStructureExample
+	main_StandardDataStructure();
 }

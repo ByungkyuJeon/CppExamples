@@ -175,6 +175,7 @@
     <ClInclude Include="SmartPointers.h" />
     <ClInclude Include="SortingAlgorithms.h" />
     <ClInclude Include="StandardAlgorithms.h" />
+    <ClInclude Include="StandardDataStructure.h" />
     <ClInclude Include="TimeChecker.h" />
     <ClInclude Include="VectorsArrays.h" />
   </ItemGroup>

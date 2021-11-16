@@ -143,5 +143,8 @@
     <ClInclude Include="DataStructure.h">
       <Filter>소스 파일\Public\CppExamples</Filter>
     </ClInclude>
+    <ClInclude Include="StandardDataStructure.h">
+      <Filter>소스 파일\Public\CppExamples</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
