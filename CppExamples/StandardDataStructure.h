@@ -1,9 +1,12 @@
 #pragma once
 
 #include <iostream>
+#include <string>
 #include <set>
 #include <map>
 #include <ctime>
+#include <unordered_set>
+#include <unordered_map>
 
 void main_StandardDataStructure()
 {
@@ -125,5 +128,37 @@ void main_StandardDataStructure()
 			exampleMultiMap.emplace(1, static_cast<double>(std::rand() / static_cast<double>(RAND_MAX / 200)));
 		}
 		for(const auto& elem : exampleMultiMap) { std::cout << "key : " << elem.first << " / value : " << elem.second << std::endl; }
+	}
+
+	/// std::unordered_set example
+	///
+	/// unordered_set is totally difference from std::set
+	/// 
+	/// uses std::hash internally so this contatiner can not be sorted
+	/// but time complexity of 'emplace', 'find' and 'erase' operations is O(1) 
+	/// 
+	/// time complexity : insertion O(1), when re-hashing O(n)
+	///					  deletion O(1)
+	///					  find O(1)
+	std::cout << "--- std::unordered_set example ---" << std::endl;
+	{
+		std::unordered_set<std::string> exampleUnorderedSet;
+		/// by reserving, operation re-hashing can be prevented
+		exampleUnorderedSet.reserve(50);
+		/// by setting max_load_factor, re-hashing time can be operated
+		exampleUnorderedSet.max_load_factor(2);
+
+
+		for (int initCounter = 0; initCounter < 30; initCounter++)
+		{
+			exampleUnorderedSet.emplace("UnorderedSet" + std::to_string(std::rand() % 200));
+		}
+
+		for (const auto& elem : exampleUnorderedSet) 
+		{ 
+			std::cout << "value : " << elem 
+			<< " / hash : " << std::hash<std::string>()(elem) 
+			<< " / bucket : " << exampleUnorderedSet.bucket(elem) << std::endl; 
+		}
 	}
 }
