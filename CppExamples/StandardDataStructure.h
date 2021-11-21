@@ -8,6 +8,59 @@
 #include <unordered_set>
 #include <unordered_map>
 
+class StandardDataStructureExampleClass
+{
+public:
+	StandardDataStructureExampleClass() : mInt{ 0 }, mDouble{ 0 }{}
+	StandardDataStructureExampleClass(int inInt, double inDouble) : mInt{ inInt }, mDouble{ inDouble }{}
+	StandardDataStructureExampleClass(const StandardDataStructureExampleClass& other) : mInt{ other.mInt }, mDouble{ other.mDouble }{}
+	StandardDataStructureExampleClass(StandardDataStructureExampleClass&& other) noexcept : mInt{ std::move(other.mInt) }, mDouble{ std::move(other.mDouble) } {}
+
+	bool operator==(const StandardDataStructureExampleClass& other) const
+	{
+		return mInt == other.GetIntValue();
+	}
+
+	int GetIntValue() const
+	{
+		return mInt;
+	}
+
+	double GetDoubleValue() const
+	{
+		return mDouble;
+	}
+
+	void Print() const
+	{
+		std::cout << "int value : " << mInt << " / double value : " << mDouble << std::endl;
+	}
+
+private:
+	int mInt;
+	double mDouble;
+};
+
+/// custom hash function object
+struct ClassHashExample
+{
+	std::size_t operator()(const StandardDataStructureExampleClass& classHash) const noexcept
+	{
+		/// 8 shifting integer value + double value mod 200 (200 is random range)
+		return ((static_cast<std::size_t>(classHash.GetIntValue()) << 8) + static_cast<std::size_t>(classHash.GetDoubleValue())) % 200;
+	}
+};
+
+/// injected custom specialization of std::hash
+template<>
+struct std::hash<StandardDataStructureExampleClass>
+{
+	std::size_t operator()(StandardDataStructureExampleClass& classHash) const noexcept
+	{
+		return ((static_cast<std::size_t>(classHash.GetIntValue()) << 8) + static_cast<std::size_t>(classHash.GetDoubleValue())) % 200;
+	}
+};
+
 void main_StandardDataStructure()
 {
 	std::srand(std::time(nullptr));
@@ -130,17 +183,21 @@ void main_StandardDataStructure()
 		for(const auto& elem : exampleMultiMap) { std::cout << "key : " << elem.first << " / value : " << elem.second << std::endl; }
 	}
 
-	/// std::unordered_set example
+	/// std::unordered_set example 1
 	///
+	/// with primitive type elements
+	/// 
 	/// unordered_set is totally difference from std::set
 	/// 
 	/// uses std::hash internally so this contatiner can not be sorted
-	/// but time complexity of 'emplace', 'find' and 'erase' operations is O(1) 
+	/// but time complexity of 'emplace', 'find' and 'erase' operations is O(1)
+	/// 
+	/// element duplication not allowed
 	/// 
 	/// time complexity : insertion O(1), when re-hashing O(n)
 	///					  deletion O(1)
 	///					  find O(1)
-	std::cout << "--- std::unordered_set example ---" << std::endl;
+	std::cout << "--- std::unordered_set example with primitive type elements ---" << std::endl;
 	{
 		std::unordered_set<std::string> exampleUnorderedSet;
 		/// by reserving, operation re-hashing can be prevented
@@ -159,6 +216,47 @@ void main_StandardDataStructure()
 			std::cout << "value : " << elem 
 			<< " / hash : " << std::hash<std::string>()(elem) 
 			<< " / bucket : " << exampleUnorderedSet.bucket(elem) << std::endl; 
+		}
+	}
+
+	/// std::unordered_set example 2
+	///
+	/// with class types
+	/// 
+	/// needs custom hash function object
+	/// needs operator== override
+	std::cout << "--- std::unordered_set example with class types ---" << std::endl;
+	{
+		std::unordered_set<StandardDataStructureExampleClass, ClassHashExample> exampleUnordered_Set;
+
+		for (int initCounter = 0; initCounter < 30; initCounter++)
+		{
+			exampleUnordered_Set.emplace(StandardDataStructureExampleClass{ rand() % 200, static_cast<double>(rand() / static_cast<double>(RAND_MAX / 200)) });
+		}
+
+		for (const auto& elem : exampleUnordered_Set)
+		{
+			std::cout << "hash : " << ClassHashExample()(elem) << " / ";
+			elem.Print();
+		}
+	}
+
+	/// std::unordered_map example
+	///
+	/// same as std::unordered_set with key-value element structure
+	std::cout << "--- std::unordered_map example ---" << std::endl;
+	{
+		std::unordered_map<int, StandardDataStructureExampleClass> exampleUnordered_Map;
+
+		for (int initCounter = 0; initCounter < 30; initCounter++)
+		{
+			exampleUnordered_Map.emplace(initCounter, StandardDataStructureExampleClass(rand() % 200, static_cast<double>(rand() / static_cast<double>(RAND_MAX / 200))));
+		}
+
+		for (const auto& elem : exampleUnordered_Map)
+		{
+			std::cout << "hash : " << ClassHashExample()(elem.second) << " / ";
+			elem.second.Print();
 		}
 	}
 }
