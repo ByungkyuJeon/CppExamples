@@ -158,6 +158,73 @@ private:
 };
 
 
+class HashMapSourceClass
+{
+public:
+
+	std::vector<ExampleSourceClass>& GetValues()
+	{
+		return mInternalVector;
+	}
+
+private:
+
+	size_t mBucketNum;
+	std::vector<ExampleSourceClass> mInternalVector;
+};
+
+class HashMapExampleClass
+{
+public:
+	
+	HashMapExampleClass()
+	{
+		mHashMap.reserve(50);
+		for (size_t initCounter = 0; initCounter < 50; initCounter++)
+		{
+			mHashMap.emplace_back(HashMapSourceClass());
+		}
+	}
+
+	HashMapExampleClass(size_t bucketCount)
+	{
+		mHashMap.reserve(bucketCount);
+		for (size_t initCounter = 0; initCounter < bucketCount; initCounter++)
+		{
+			mHashMap.emplace_back(HashMapSourceClass());
+		}
+	}
+
+	void Emplace(ExampleSourceClass& LRef)
+	{
+		mHashMap[HashFunction(LRef)].GetValues().emplace_back(std::move(LRef));
+	}
+
+	void Emplace(ExampleSourceClass&& RRef)
+	{
+		mHashMap[HashFunction(RRef)].GetValues().emplace_back(std::move(RRef));
+	}
+
+	size_t Size()
+	{
+		size_t size = 0;
+		for (auto& elem : mHashMap)
+		{
+			size += elem.GetValues().size();
+		}
+		return size;
+	}
+
+	size_t HashFunction(const ExampleSourceClass& hashObj) const
+	{
+		return ((hashObj.GetIntVal() << 8) + static_cast<int>(hashObj.GetDoubleVal())) % mHashMap.capacity();
+	}
+
+private:
+	std::vector<HashMapSourceClass> mHashMap;
+};
+
+
 void main_DataStructureExample()
 {
 	std::srand(static_cast<unsigned>(std::time(nullptr)));
