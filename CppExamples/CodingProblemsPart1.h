@@ -1,0 +1,164 @@
+#pragma once
+
+#include <iostream>
+#include <vector>
+#include <array>
+#include "TimeChecker.h"
+
+/// 문제 : 당신은 음식점의 계산을 도와주는 점원입니다. 카운터에는 거스름돈으로 사용할 500원, 100원, 50원, 10원짜리
+/// 동전이 무한히 존재한다고 가정합니다. 손님에게 거슬러 주어야 할 돈이 N원일 때 거슬러 주어야 할 동전의 최소 개수를 
+/// 구하세요. 단, 거슬러 줘야 할 돈 N은 항상 10의 배수입니다.
+/// 
+/// Greedy
+void Problem_1()
+{
+	int outChange;
+
+	std::cin >> outChange;
+
+	double consumedTime = TimeChecker::CheckTime([&] {
+		int coinCount = 0;
+		int change = outChange;
+
+		std::array<int, 4> coins{ 500, 100, 50, 10 };
+
+		for (const auto& elem : coins)
+		{
+			coinCount += change / elem;
+			change %= elem;
+		}
+
+		std::cout << coinCount << std::endl;
+	});
+
+	std::cout << "Consumed Time : " << consumedTime << " ms" << std::endl;
+}
+
+/// 어떠한 수 N이 1이 될 대까지 다음의 두 과정 중 하나를 반복적으로 선택하여 수행하려고 합니다. 단, 두 번째 연산은 
+/// N이 K로 나누어 떨어질 때만 선택할 수 있습니다.
+/// 1. N에서 1을 뺍니다.
+/// 2. N을 K로 나눕니다.
+/// N과 K가 주어질 때 N이 1이 될 때까지 1번 혹은 2번의 과정을 수행해야 하는 최소 횟수를 구하는 프로그램을 작성하세요. 
+/// 
+/// greeedy
+void Problem_2_InEfficient()
+{
+	std::cout << "problem 2 inefficient" << std::endl;
+
+	int outN, outK;
+
+	std::cin >> outN >> outK;
+
+	double consumedTime = TimeChecker::CheckTime([&] {
+
+		int N = outN;
+		int K = outK;
+		int operationCount = 0;
+
+		while (N != 1)
+		{
+			if (N % K == 0)
+			{
+				N /= K;
+			}
+			else
+			{
+				N--;
+			}
+
+			operationCount++;
+		}
+
+		std::cout << operationCount << std::endl;
+	});
+
+	std::cout << "consumed time : " << consumedTime << " ms" << std::endl;
+}
+
+/// shortening decrement steps
+///
+/// but multiple if syntax
+void Problem_2_Efficient_Trial_1()
+{
+	std::cout << "problem 2 efficient" << std::endl;
+
+	int outN, outK;
+
+	std::cin >> outN >> outK;
+
+	double consumedTime = TimeChecker::CheckTime([&] {
+
+		int N = outN;
+		int K = outK;
+		int modOperationBuffer;
+		int operationCount = 0;
+
+		while (N != 1)
+		{
+			modOperationBuffer = N % K;
+
+			if (modOperationBuffer == 0)
+			{
+				N /= K;
+				operationCount++;
+			}
+			else
+			{
+				if ((N -= modOperationBuffer) == 0)
+				{
+					operationCount += modOperationBuffer - 1;
+					break;
+				}
+				N /= K;
+
+				operationCount += modOperationBuffer + 1;
+			}
+		}
+
+		std::cout << operationCount << std::endl;
+	});
+
+	std::cout << "consumed time : " << consumedTime << " ms" << std::endl;
+}
+
+/// shortening decrement steps
+///
+/// only one if syntax
+void Problem_2_Efficient()
+{
+	int outN, outK;
+	std::cin >> outN >> outK;
+
+	double consumedTime = TimeChecker::CheckTime([&] {
+	
+		int N = outN;
+		int K = outK;
+		int operationCount = 0;
+		int modOperation;
+
+		while (N != 1)
+		{
+			if ((N -= (modOperation = N % K)) == 0)
+			{
+				operationCount += modOperation - 1;
+				break;
+			}
+			
+			N /= K;
+			operationCount += modOperation + 1;
+		}
+		
+		std::cout << operationCount << std::endl;
+	});
+
+	std::cout << "consumed time : " << consumedTime << " ms" << std::endl;
+}
+
+void main_CodingProblemsPart1()
+{
+	/// Greedy Problems
+
+	//Problem_1();
+	Problem_2_InEfficient();
+	Problem_2_Efficient();
+}
