@@ -259,4 +259,59 @@ void main_StandardDataStructure()
 			elem.second.Print();
 		}
 	}
+
+	/// std::list example
+	///
+	/// interaly implemented as doubly-linked list 
+	/// 
+	/// time complexity : insertion O(1)
+	///					  deletion O(1)
+	///					  find O(n)
+	/// 
+	/// fast random access is not supported
+	/// 
+	/// std::list properties
+	/// 1. front element memory address
+	/// 2. back element memory address
+	/// 3. size of list
+	{
+		std::list<int> exampleList;
+
+		for (std::size_t initCounter = 0; initCounter < 30; initCounter++)
+		{
+			/// all of these operations' time complexity are O(1)
+			exampleList.emplace_back(rand() % 200);
+			// exampleList.emplace_front(rand() % 200);
+			// exampleList.insert(exampleList.begin(), rand() % 200);
+			// exampleList.pop_front();
+			// exampleList.pop_back();
+		}
+
+		/// can not access by this bracket expression
+		/// no implementation of operator[]
+		//exampleList[1];
+
+		/// finding element in list
+		/// time complexity for find in list is O(n)
+		auto itr = std::find(exampleList.begin(), exampleList.end(), 1);
+		if (itr != exampleList.end())
+		{
+			// found
+		}
+
+		/// sort, merge for list
+		std::list<int> exampleList_1{ 5,3,4,1,2 };
+		std::list<int> exampleList_2{ 10,6,8,7,9 };
+
+		exampleList_1.sort();
+		exampleList_2.sort();
+
+		/// operands should be in sorted state
+		exampleList_1.merge(exampleList_2);
+
+		for (const auto& elem : exampleList_1)
+		{
+			std::cout << elem << std::endl;
+		}
+	}
 }
