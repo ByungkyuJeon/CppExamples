@@ -11,7 +11,7 @@
 /// 구하세요. 단, 거슬러 줘야 할 돈 N은 항상 10의 배수입니다.
 /// 
 /// Greedy
-void Problem_1()
+void GreedyProblem_1()
 {
 	int outChange;
 
@@ -42,7 +42,7 @@ void Problem_1()
 /// N과 K가 주어질 때 N이 1이 될 때까지 1번 혹은 2번의 과정을 수행해야 하는 최소 횟수를 구하는 프로그램을 작성하세요. 
 /// 
 /// greeedy
-void Problem_2_InEfficient()
+void GreedyProblem_2_InEfficient()
 {
 	std::cout << "problem 2 inefficient" << std::endl;
 
@@ -79,7 +79,7 @@ void Problem_2_InEfficient()
 /// shortening decrement steps
 ///
 /// but multiple if syntax
-void Problem_2_Efficient_Trial_1()
+void GreedyProblem_2_Efficient_Trial_1()
 {
 	std::cout << "problem 2 efficient" << std::endl;
 
@@ -125,7 +125,7 @@ void Problem_2_Efficient_Trial_1()
 /// shortening decrement steps
 ///
 /// only one if syntax
-void Problem_2_Efficient()
+void GreedyProblem_2_Efficient()
 {
 	int outN, outK;
 	std::cin >> outN >> outK;
@@ -161,7 +161,7 @@ void Problem_2_Efficient()
 /// 
 /// 예를 들어 02984라는 문자열로 만들 수 있는 가장 큰 수는 ((((0 + 2) x 9) x 8) x 4) = 576입니다.
 /// 또한 만들어질 수 있는 가장 큰 수는 항상 20억 이하의 정수가 되도록 입력이 주어집니다.
-void Problem_3_Trial_1()
+void GreedyProblem_3_Trial_1()
 {
 	std::string outStr;
 
@@ -198,7 +198,7 @@ void Problem_3_Trial_1()
 
 /// remove making vector container
 /// number 1 has to be considered also
-void Problem_3_Final()
+void GreedyProblem_3_Final()
 {
 	std::string outStr;
 
@@ -227,16 +227,100 @@ void Problem_3_Final()
 	std::cout << "consumed time : " << consumedTime << " ms" << std::endl;
 }
 
-void main_CodingProblemsPart1()
+/// 한 마을에 모험가가 N명 있습니다. 모험가 길드에서는 N명의 모험가를 대상으로 '공포도'를 측정했는데, 
+/// 공포도가 높은 모험가는 쉽게 공포를 느껴 위험 상황에서 제대로 대처할 능력이 떨어집니다.
+/// 모험가 길드장은 모험가 그룹을 안전하게 구성하고자 공포도가 X인 모험가는 반드시 X명 이상으로 구성한 모험가 그룹에 
+/// 참여해야 여행을 떠날 수 있도록 규정했습니다.
+/// 길드장은 최대 몇개의 모험가 그룹을 만들 수 있는지 궁금합니다. N명의 모험가에 대한 정보가 주어졌을때,
+/// 여행을 떠날 수 있는 그룹 수의 최댓값을 구하는 프로그램을 작성하세요.
+void GreedyProblem_4_Trial()
+{
+	size_t adventurerNumber;
+
+	std::cin >> adventurerNumber;
+
+	std::vector<int> adventurerFearNums;
+
+	for (size_t num = adventurerNumber; num > 0; num--)
+	{
+		std::cin >> adventurerNumber;
+		adventurerFearNums.emplace_back(adventurerNumber);
+	}
+
+	double consumedTime = TimeChecker::CheckTime([&] {
+
+		int teamNumber = 0;
+
+		std::sort(adventurerFearNums.begin(), adventurerFearNums.end());
+
+		for (size_t outerIdx = 0; outerIdx < adventurerFearNums.size(); outerIdx++)
+		{
+			for (size_t innerIdx = outerIdx; innerIdx < adventurerFearNums.size(); innerIdx++)
+			{
+				if ((innerIdx - outerIdx + 1) >= adventurerFearNums[innerIdx])
+				{
+					teamNumber++;
+					outerIdx = innerIdx + 1;
+					break;
+				}
+			}
+		}
+
+		std::cout << teamNumber << std::endl;
+
+	});
+
+	std::cout << "consumed time : " << consumedTime << " ms" << std::endl;
+}
+
+/// deleted outer for iteration
+void GreedyProblem_4_Final()
+{
+	size_t adventurerNum;
+	std::cin >> adventurerNum;
+	
+	std::vector<int> adventurerFearNums;
+	for(size_t inputCounter = adventurerNum; inputCounter > 0; inputCounter--)
+	{
+		std::cin >> adventurerNum;
+		adventurerFearNums.emplace_back(adventurerNum);
+	}
+
+	double consumedTime = TimeChecker::CheckTime([&] {
+		
+		int teamCount = 0;
+		size_t lookingIdx = 0;
+
+		for (size_t idx = 0; idx < adventurerFearNums.size(); idx++)
+		{
+			if (idx - lookingIdx + 1 >= adventurerFearNums[idx])
+			{
+				teamCount++;
+				lookingIdx = idx + 1;
+				idx++;
+			}
+		}
+
+		std::cout << teamCount << std::endl;
+		
+	});
+
+	std::cout << "consumed time : " << consumedTime << " ms" << std::endl;
+}
+
+void main_CodingProblems_Greedy()
 {
 	/// Greedy Problems
 
-	//Problem_1();
+	//GreedyProblem_1();
 	
-	//Problem_2_InEfficient();
-	//Problem_2_Efficient_Trial_1()
-	//Problem_2_Efficient();
+	//GreedyProblem_2_InEfficient();
+	//GreedyProblem_2_Efficient_Trial_1()
+	//GreedyProblem_2_Efficient();
 
-	//Problem_3_Trial_1();
-	//Problem_3_Final();
+	//GreedyProblem_3_Trial_1();
+	//GreedyProblem_3_Final();
+
+	//GreedyProblem_4_Trial();
+	//GreedyProblem_4_Final();
 }
