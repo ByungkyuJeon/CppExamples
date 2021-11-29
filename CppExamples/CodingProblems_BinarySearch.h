@@ -189,5 +189,5 @@ void main_CodingProblems_BinarySearch()
 	//BinarySearch_Problem_1_Solution_1();
 	//BinarySearch_Problem_1_Solution_2();
 
-	BinarySearch_Problem_2();
+	//BinarySearch_Problem_2();
 }
