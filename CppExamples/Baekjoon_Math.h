@@ -97,3 +97,64 @@ void Beakjoon_Math_2908()
 	std::cout << std::max(nums[0], nums[1]) << std::endl;
 }
 
+/// 주어진 수 N개 중에서 소수가 몇 개인지 찾아서 출력하는 프로그램을 작성하시오.
+/// 2~n/2 까지
+void Baekjoon_Math_1978_Trial_1()
+{
+	int N, inputBuffer;
+	int result = 0;
+	std::vector<int> nums;
+
+	std::cin >> N;
+	for (int counter = N; counter > 0; counter--)
+	{
+		std::cin >> inputBuffer;
+		nums.emplace_back(inputBuffer);
+	}
+
+	for (const auto& elem : nums)
+	{
+		if (elem > 1) { result++; }
+		for (int checker = 2; checker <= elem / 2; checker++)
+		{
+			if (elem % checker == 0)
+			{
+				result--;
+				break;
+			}
+		}
+	}
+
+	std::cout << result << std::endl;
+}
+
+/// 주어진 수 N개 중에서 소수가 몇 개인지 찾아서 출력하는 프로그램을 작성하시오.
+/// 2~sqrt(n) 까지
+void Baekjoon_Math_1978_Trial_2()
+{
+	int N, inputBuffer;
+	std::vector<int> nums;
+	int result = 0;
+
+	std::cin >> N;
+	for (int counter = N; counter > 0; counter--)
+	{
+		std::cin >> inputBuffer;
+		nums.emplace_back(inputBuffer);
+	}
+
+	for (const auto& elem : nums)
+	{
+		if (elem > 1) { result++; }
+		for (int checker = 2; checker <= static_cast<int>(sqrt(elem)); checker++)
+		{
+			if (elem % checker == 0)
+			{
+				result--;
+				break;
+			}
+		}
+	}
+
+	std::cout << result << std::endl;
+}
