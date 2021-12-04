@@ -5,6 +5,8 @@
 #include <string>
 #include <algorithm>
 #include <numeric>
+#include <unordered_map>
+#include "TimeChecker.h"
 
 /// n이 주어졌을 때, 1부터 n까지 합을 구하는 프로그램을 작성하시오.
 void Baekjoon_Math_8393()
@@ -157,4 +159,77 @@ void Baekjoon_Math_1978_Trial_2()
 	}
 
 	std::cout << result << std::endl;
+}
+
+int Calculate_Baekjoon_2922_MaxRange(int num)
+{
+	if (num < 2) { return 1; }
+
+	return 6 * (num - 1);
+}
+
+int Calculate_Baekjoon_2922_MinRange(std::unordered_map<int, int>& cache, int num)
+{
+	if (num < 1) { return -1; }
+	else if (cache.find(num) != cache.end())
+	{
+		return cache[num];
+	}
+
+	cache.emplace(num, ((num - 2) * 6) + Calculate_Baekjoon_2922_MinRange(cache, num - 1));
+
+	return cache[num];
+}
+
+/// 위의 그림과 같이 육각형으로 이루어진 벌집이 있다. 
+/// 그림에서 보는 바와 같이 중앙의 방 1부터 시작해서 이웃하는 방에 돌아가면서 1씩 증가하는 번호를 주소로 매길 수 있다. 
+/// 숫자 N이 주어졌을 때, 벌집의 중앙 1에서 N번 방까지 최소 개수의 방을 지나서 갈 때
+/// 몇 개의 방을 지나가는지(시작과 끝을 포함하여)를 계산하는 프로그램을 작성하시오.
+/// 예를 들면, 13까지는 3개, 58까지는 5개를 지난다.
+void Baekjoon_Math_2292()
+{
+	std::unordered_map<int, int> cacheTable
+	{
+		{1, 1},
+		{2, 2}
+	};
+
+	int N, minBuffer;
+	std::cin >> N;
+
+	double consumedTime = TimeChecker::CheckTime([&] {
+
+		for (int counter = 1; counter < 20; counter++)
+		{
+			minBuffer = Calculate_Baekjoon_2922_MinRange(cacheTable, counter);
+			if (minBuffer <= N && N < minBuffer + Calculate_Baekjoon_2922_MaxRange(counter))
+			{
+				std::cout << counter << std::endl;
+				break;
+			}
+		}
+	});
+
+	std::cout << "consumed time : " << consumedTime << " ms" << std::endl;
+}
+
+void Baekjoon_Math_2292_Tiral_2()
+{
+	int N;
+	std::cin >> N;
+
+	if (N == 1) { std::cout << 1 << std::endl; return 0; }
+
+	int lowerNum = 2;
+	int circleNum = 2;
+	while (true)
+	{
+		if (lowerNum <= N && N < (lowerNum = lowerNum + (6 * (circleNum - 1))))
+		{
+			std::cout << circleNum << std::endl;
+			break;
+		}
+
+		circleNum++;
+	}
 }
