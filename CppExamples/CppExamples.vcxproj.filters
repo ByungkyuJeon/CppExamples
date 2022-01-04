@@ -18,6 +18,9 @@
     <Filter Include="Source\CppExamples">
       <UniqueIdentifier>{f70022e3-bb64-4436-b742-dec8dbd6cc39}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header\Helpers">
+      <UniqueIdentifier>{de5b7865-a9d9-42c0-8ec9-8e44cb8ecd14}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppExamples.cpp">
@@ -112,9 +115,6 @@
     <ClInclude Include="VectorsArrays.h">
       <Filter>Header\CppExamples</Filter>
     </ClInclude>
-    <ClInclude Include="TimeChecker.h">
-      <Filter>Header\CppExamples</Filter>
-    </ClInclude>
     <ClInclude Include="FunctionObject.h">
       <Filter>Header\CppExamples</Filter>
     </ClInclude>
@@ -124,9 +124,6 @@
     <ClInclude Include="SortingAlgorithms.h">
       <Filter>Header\CppExamples</Filter>
     </ClInclude>
-    <ClInclude Include="ExampleHelperClass.h">
-      <Filter>Header\CppExamples</Filter>
-    </ClInclude>
     <ClInclude Include="DataStructure.h">
       <Filter>Header\CppExamples</Filter>
     </ClInclude>
@@ -134,6 +131,15 @@
       <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="RandomInCpp11.h">
+      <Filter>Header\CppExamples</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeChecker.h">
+      <Filter>Header\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ExampleHelperClass.h">
+      <Filter>Header\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectConstructorList.h">
       <Filter>Header\CppExamples</Filter>
     </ClInclude>
   </ItemGroup>

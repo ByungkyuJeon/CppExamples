@@ -170,6 +170,7 @@
     <ClInclude Include="LinearInheritance.h" />
     <ClInclude Include="MembersInit.h" />
     <ClInclude Include="MultipleInheritance.h" />
+    <ClInclude Include="ObjectConstructorList.h" />
     <ClInclude Include="ObjectSlicing.h" />
     <ClInclude Include="OverloadingOperators.h" />
     <ClInclude Include="RandomInCpp11.h" />

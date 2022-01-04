@@ -18,6 +18,7 @@
 #include "SortingAlgorithms.h"
 #include "DataStructure.h"
 #include "StandardDataStructure.h"
+#include "ObjectConstructorList.h"
 
 int main()
 {
@@ -68,7 +69,4 @@ int main()
 
 	/// 16. StandardDataStructureExample
 	//main_StandardDataStructure();
-
-	///
-
 }
