@@ -172,6 +172,7 @@
     <ClInclude Include="MultipleInheritance.h" />
     <ClInclude Include="ObjectSlicing.h" />
     <ClInclude Include="OverloadingOperators.h" />
+    <ClInclude Include="RandomInCpp11.h" />
     <ClInclude Include="SmartPointers.h" />
     <ClInclude Include="SortingAlgorithms.h" />
     <ClInclude Include="StandardAlgorithms.h" />

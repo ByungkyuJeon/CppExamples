@@ -1,6 +1,5 @@
 ﻿#pragma once
 
-#include "Practice.h"
 #include "ClassMemorysize.h"
 #include "CopyElision.h"
 #include "FunctionRVO.h"
@@ -19,18 +18,9 @@
 #include "SortingAlgorithms.h"
 #include "DataStructure.h"
 #include "StandardDataStructure.h"
-#include "CodingProblems_Greedy.h"
-#include "CodingProblems_Implementation.h"
-#include "CodingProblems_DFSBFS.h"
-#include "CodingProblems_Sort.h"
-#include "CodingProblems_BinarySearch.h"
-#include "CodingProblems_DynamicProgramming.h"
 
 int main()
 {
-	/// test main
-	main_Practice();
-
 	/// 1. CopyElision Example
 	//main_CopyElisionExample();
 
@@ -81,23 +71,4 @@ int main()
 
 	///
 
-	/// Coding Problem Solutions
-
-	/// 1. Greedy
-	//main_CodingProblems_Greedy();
-
-	/// 2. Implementation
-	//main_CodingProblems_Implementation();
-
-	/// 3. BFS, DFS
-	//main_CodingProblems_DFSBFS();
-
-	/// 4. Sort
-	//main_CodingProblems_Sort();
-
-	/// 5. Binary Search
-	//main_CodingProblems_BinarySearch();
-
-	/// 6. DynamicProgramming
-	//main_CodingProblems_DynamicProgramming();
 }

@@ -1,144 +1,140 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="리소스 파일">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\Private">
-      <UniqueIdentifier>{94c08a15-a1ba-4610-9f69-94e799c16e71}</UniqueIdentifier>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="소스 파일\Public">
+    <Filter Include="Header">
       <UniqueIdentifier>{041f98b1-c130-4878-a7b4-e317d5c290e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Public\CppExamples">
+    <Filter Include="Header\CppExamples">
       <UniqueIdentifier>{f427b44a-fc73-4068-876f-c67e3ba69efa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Private\CppExamples">
+    <Filter Include="Source\CppExamples">
       <UniqueIdentifier>{f70022e3-bb64-4436-b742-dec8dbd6cc39}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppExamples.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="OverloadingOperators.cpp">
-      <Filter>소스 파일\Private\CppExamples</Filter>
+      <Filter>Source\CppExamples</Filter>
     </ClCompile>
     <ClCompile Include="ClassMemorySize.cpp">
-      <Filter>소스 파일\Private\CppExamples</Filter>
+      <Filter>Source\CppExamples</Filter>
     </ClCompile>
     <ClCompile Include="CopyElision.cpp">
-      <Filter>소스 파일\Private\CppExamples</Filter>
+      <Filter>Source\CppExamples</Filter>
     </ClCompile>
     <ClCompile Include="FunctionRVO.cpp">
-      <Filter>소스 파일\Private\CppExamples</Filter>
+      <Filter>Source\CppExamples</Filter>
     </ClCompile>
     <ClCompile Include="MembersInit.cpp">
-      <Filter>소스 파일\Private\CppExamples</Filter>
+      <Filter>Source\CppExamples</Filter>
     </ClCompile>
     <ClCompile Include="ForLoop.cpp">
-      <Filter>소스 파일\Private\CppExamples</Filter>
+      <Filter>Source\CppExamples</Filter>
     </ClCompile>
     <ClCompile Include="SmartPointers.cpp">
-      <Filter>소스 파일\Private\CppExamples</Filter>
+      <Filter>Source\CppExamples</Filter>
     </ClCompile>
     <ClCompile Include="LinearInheritance.cpp">
-      <Filter>소스 파일\Private\CppExamples</Filter>
+      <Filter>Source\CppExamples</Filter>
     </ClCompile>
     <ClCompile Include="MultipleInheritance.cpp">
-      <Filter>소스 파일\Private\CppExamples</Filter>
+      <Filter>Source\CppExamples</Filter>
     </ClCompile>
     <ClCompile Include="Diamondinheritance.cpp">
-      <Filter>소스 파일\Private\CppExamples</Filter>
+      <Filter>Source\CppExamples</Filter>
     </ClCompile>
     <ClCompile Include="ObjectSlicing.cpp">
-      <Filter>소스 파일\Private\CppExamples</Filter>
+      <Filter>Source\CppExamples</Filter>
     </ClCompile>
     <ClCompile Include="DynamicCasting.cpp">
-      <Filter>소스 파일\Private\CppExamples</Filter>
+      <Filter>Source\CppExamples</Filter>
     </ClCompile>
     <ClCompile Include="VectorsArrays.cpp">
-      <Filter>소스 파일\Private\CppExamples</Filter>
+      <Filter>Source\CppExamples</Filter>
     </ClCompile>
     <ClCompile Include="FunctionObject.cpp">
-      <Filter>소스 파일\Private\CppExamples</Filter>
+      <Filter>Source\CppExamples</Filter>
     </ClCompile>
     <ClCompile Include="StandardAlgorithms.cpp">
-      <Filter>소스 파일\Private\CppExamples</Filter>
+      <Filter>Source\CppExamples</Filter>
     </ClCompile>
     <ClCompile Include="SortingAlgorithms.cpp">
-      <Filter>소스 파일\Private\CppExamples</Filter>
+      <Filter>Source\CppExamples</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassMemorySize.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="CopyElision.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="FunctionRVO.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="MembersInit.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="OverloadingOperators.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="ForLoop.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="SmartPointers.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="LinearInheritance.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="MultipleInheritance.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="DiamondInheritance.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="ObjectSlicing.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="DynamicCasting.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="VectorsArrays.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="TimeChecker.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="FunctionObject.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="StandardAlgorithms.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="SortingAlgorithms.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="ExampleHelperClass.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="DataStructure.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
     <ClInclude Include="StandardDataStructure.h">
-      <Filter>소스 파일\Public\CppExamples</Filter>
+      <Filter>Header\CppExamples</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomInCpp11.h">
+      <Filter>Header\CppExamples</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
