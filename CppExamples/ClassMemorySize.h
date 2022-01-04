@@ -23,6 +23,10 @@ private:
 	/// total size of member variables : 16 bytes
 	/// total size of padding : 8 bytes
 	/// total size of class : 24 bytes
+	/// 
+	/// ALIGNMENT RULE
+	/// 1. Variable's address must start at its size's multiple number
+	/// 2. Object's total size must be multiple number of its largest variable
 
 	// 4 bytes
 	int mAge;
