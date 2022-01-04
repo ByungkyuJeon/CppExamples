@@ -1,6 +1,6 @@
 # CppExamples
 
-cpp code examples with some comments of explanation.
+cpp code examples about language specification with some comments of explanation.
 
 ## Motivation
 
