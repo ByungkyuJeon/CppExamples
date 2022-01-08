@@ -27,7 +27,7 @@ public:
 	}
 };
 
-void main_Castings()
+void executeCastings()
 {
 	// static_cast
 	// 

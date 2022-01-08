@@ -64,4 +64,4 @@ private:
 };
 
 
-void main_ObjectSlicingExample();
+void executeObjectSlicingExample();

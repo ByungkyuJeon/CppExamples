@@ -71,4 +71,4 @@ public:
 	int mNum_Child;
 };
 
-void main_MultipleInheritanceExample();
+void executeMultipleInheritanceExample();

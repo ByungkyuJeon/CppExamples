@@ -1,6 +1,6 @@
 #include "FunctionObject.h"
 
-void main_FunctionObejctExample()
+void executeFunctionObejctExample()
 {
 	/// FUNCTION OBJECT EXAMPLE
 	/// 

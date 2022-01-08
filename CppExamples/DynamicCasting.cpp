@@ -2,7 +2,7 @@
 
 #include <memory>
 
-void main_DynamicCastingExample()
+void executeDynamicCastingExample()
 {
 	/// STATIC CASTING
 	std::cout << "--- static casting ---" << std::endl;

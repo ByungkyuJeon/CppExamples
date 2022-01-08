@@ -158,9 +158,11 @@
     <ClCompile Include="VectorsArrays.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CastConversion.h" />
     <ClInclude Include="ClassMemorySize.h" />
     <ClInclude Include="CopyElision.h" />
     <ClInclude Include="DataStructure.h" />
+    <ClInclude Include="DefineMacro.h" />
     <ClInclude Include="DiamondInheritance.h" />
     <ClInclude Include="DynamicCasting.h" />
     <ClInclude Include="ExampleHelperClass.h" />

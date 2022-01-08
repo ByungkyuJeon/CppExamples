@@ -19,54 +19,62 @@
 #include "DataStructure.h"
 #include "StandardDataStructure.h"
 #include "ObjectConstructorList.h"
+#include "CastConversion.h"
+#include "DefineMacro.h"
 
 int main()
 {
 	/// 1. CopyElision Example
-	//main_CopyElisionExample();
+	//executeCopyElisionExample();
 
 	/// 2. OverloadingOperators Example
-	//main_OverloadingOperatorsExample();
+	//executeOverloadingOperatorsExample();
 
 	/// 3. ForLoop Example
-	//main_ForLoopExample();
+	//executeForLoopExample();
 
 	/// 4. MembersInit Example
-	//main_MembersInitExample();
+	//executeMembersInitExample();
 
 	/// 5. Smart Pointers Example
-	//main_SmartPointersExample();
+	//executeSmartPointersExample();
 
 	/// 6. LinearInheritance Example
-	//main_LinearInheritanceExample();
+	//executeLinearInheritanceExample();
 
 	/// 7. MultipleInheritance Example
-	///main_MultipleInheritanceExample();
+	//executeMultipleInheritanceExample();
 	
 	/// 8. DiamondInheritance Example
-	//main_DiamondInheritanceExample();
+	//executeDiamondInheritanceExample();
 
 	/// 9. Object Slicing Example
-	//main_ObjectSlicingExample();
+	//executeObjectSlicingExample();
 
 	/// 10. Dynamic Casting Example
-	//main_DynamicCastingExample();
+	//executeDynamicCastingExample();
 
 	/// 11. Arrays and Vectors
-	//main_VectorsArraysExample();
+	//executeVectorsArraysExample();
 
 	/// 12. FunctionObjectExample
-	//main_FunctionObejctExample();
+	//executeFunctionObejctExample();
 
 	/// 13. StandardAlgorithmsExample
-	//main_StandardAlgorithmsExample();
+	//executeStandardAlgorithmsExample();
 
 	/// 14. SortingAlgorithmsExample
-	//main_SortingAlgorithmsExample();
+	//executeSortingAlgorithmsExample();
 
 	/// 15. DataStructureExample
-	//main_DataStructureExample();
+	//executeDataStructureExample();
 
 	/// 16. StandardDataStructureExample
-	//main_StandardDataStructure();
+	//executeStandardDataStructure();
+
+	// 17. CastConversion
+	//executeCastings();
+
+	// 18. DefineMacro
+	//executeDefineMacroExample();
 }

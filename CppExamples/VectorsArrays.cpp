@@ -7,7 +7,7 @@
 
 #include "TimeChecker.h"
 
-void main_VectorsArraysExample()
+void executeVectorsArraysExample()
 {
 	/// ARRAY TYPES IN CPP
 	{

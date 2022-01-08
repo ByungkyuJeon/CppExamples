@@ -13,4 +13,4 @@ private:
 	double mNumDouble;
 };
 
-void main_VectorsArraysExample();
+void executeVectorsArraysExample();

@@ -1,6 +1,6 @@
 #include "DiamondInheritance.h"
 
-void main_DiamondInheritanceExample()
+void executeDiamondInheritanceExample()
 {
 	/// DIAMOND INHERITANCE INSTANCIATION 
 	

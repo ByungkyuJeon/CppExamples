@@ -3,7 +3,7 @@
 #include <array>
 #include <ctime>
 
-void main_LinearInheritanceExample()
+void executeLinearInheritanceExample()
 {
 	/// DERIVED CLASS INITIALIZATION
 	///

@@ -225,7 +225,7 @@ private:
 };
 
 
-void main_DataStructureExample()
+void executeDataStructureExample()
 {
 	std::srand(static_cast<unsigned>(std::time(nullptr)));
 

@@ -21,4 +21,5 @@ void executeDefineMacroExample()
 	std::cout << EXP(a++) << '\n';
 
 	// 3. debugging problem
+	// defined macro doesn't go up to symbol table
 }

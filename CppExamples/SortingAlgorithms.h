@@ -190,7 +190,7 @@ void QuickSort_Type2(std::vector<Type>& arr, size_t leftIdx, size_t rightIdx)
 
 
 
-void main_SortingAlgorithmsExample()
+void executeSortingAlgorithmsExample()
 {
 	std::vector<SortingAlgorithmsExampleClass> exampleVector
 	{

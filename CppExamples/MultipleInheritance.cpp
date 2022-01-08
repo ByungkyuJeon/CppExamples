@@ -2,7 +2,7 @@
 
 #include <memory>
 
-void main_MultipleInheritanceExample()
+void executeMultipleInheritanceExample()
 {
 	/// CALL PROCEDURE AFFECTED BY INHERITANCE ORDER
 	///

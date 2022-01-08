@@ -151,4 +151,4 @@ private:
 	//std::unique_ptr<char> mSmartPointer;
 };
 
-void main_MembersInitExample();
+void executeMembersInitExample();

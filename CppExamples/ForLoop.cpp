@@ -10,7 +10,7 @@ std::ostream& operator<<(std::ostream& os, const ForLoopExampleClass& exampleCla
 	return os << exampleClass.GetName() << " : " << exampleClass.GetNum();
 }
 
-void main_ForLoopExample()
+void executeForLoopExample()
 {
 	int counter = 0;
 

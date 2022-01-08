@@ -32,7 +32,7 @@ void PrintVector(const std::vector<StandardAlgorithmsExampleClass>& InVector, ch
 	}
 }
 
-void main_StandardAlgorithmsExample()
+void executeStandardAlgorithmsExample()
 {
 	/// 1. Sorting
 	/// 

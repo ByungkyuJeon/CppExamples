@@ -86,4 +86,4 @@ OverloadingOperatorsExampleClass operator%(const OverloadingOperatorsExampleClas
 
 std::ostream& operator<<(std::ostream& stream, const OverloadingOperatorsExampleClass& exampleClass);
 
-void main_OverloadingOperatorsExample();
+void executeOverloadingOperatorsExample();

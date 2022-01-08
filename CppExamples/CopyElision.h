@@ -42,4 +42,4 @@ private:
 /// main function entry for this example
 /// 
 /// to execute example, call this function
-void main_CopyElisionExample();
+void executeCopyElisionExample();

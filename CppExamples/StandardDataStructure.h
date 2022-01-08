@@ -61,7 +61,7 @@ struct std::hash<StandardDataStructureExampleClass>
 	}
 };
 
-void main_StandardDataStructure()
+void executeStandardDataStructure()
 {
 	std::srand(std::time(nullptr));
 

@@ -128,4 +128,4 @@ public:
 };
 
 
-void main_DiamondInheritanceExample();
+void executeDiamondInheritanceExample();

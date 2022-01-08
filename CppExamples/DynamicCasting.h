@@ -43,4 +43,4 @@ public:
 	}
 };
 
-void main_DynamicCastingExample();
+void executeDynamicCastingExample();

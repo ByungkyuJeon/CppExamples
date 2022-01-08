@@ -4,7 +4,7 @@
 /// CALL EXAMPLE
 ///
 /// 
-void main_MembersInitExample()
+void executeMembersInitExample()
 {
 	/// calling default constructor
 	MembersInitExampleClass_2 ExampleClass{ "hello", 10 };

@@ -25,4 +25,4 @@ private:
 
 std::ostream& operator<<(std::ostream& os, const ForLoopExampleClass& exampleClass);
 
-void main_ForLoopExample();
+void executeForLoopExample();

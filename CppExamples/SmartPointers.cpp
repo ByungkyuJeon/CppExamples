@@ -2,7 +2,7 @@
 
 #include <memory>
 
-void main_SmartPointersExample()
+void executeSmartPointersExample()
 {
 	/// POINTER EXAMPLE
 	std::cout << "--- styles of pointers ---" << std::endl;

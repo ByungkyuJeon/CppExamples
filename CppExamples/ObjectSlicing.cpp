@@ -2,7 +2,7 @@
 
 #include <memory>
 
-void main_ObjectSlicingExample()
+void executeObjectSlicingExample()
 {
 	/// OBJECT SLICING EXAMPLE
 	///
@@ -22,8 +22,9 @@ void main_ObjectSlicingExample()
 		/// gets child instance refernce to parent type
 		/// object slicing does not occur
 		ObjectSlicingExampleClass_Parent_Sliced& exampleClass_ParentRef = exampleClass_Child;
+		exampleClass_ParentRef.Print();
 
-		/// parent class's copy constructor is called
+		/// parent class' copy constructor is called
 		/// object slicing occurred
 		ObjectSlicingExampleClass_Parent_Sliced exampleClass_ParentVal_Sliced = exampleClass_Child;
 		exampleClass_ParentVal_Sliced.Print();

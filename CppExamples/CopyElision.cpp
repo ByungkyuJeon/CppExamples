@@ -70,7 +70,7 @@ void CopyElisionExampleClass_1::SetSource_RRef(CopyElisionExampleSourceClass&& s
 /// main function entry for this example
 /// 
 /// to execute example, call this function
-void main_CopyElisionExample()
+void executeCopyElisionExample()
 {
 	CopyElisionExampleSourceClass sourceClass = CopyElisionExampleSourceClass(10);
 	CopyElisionExampleClass_1 copyElisionExampleClass;

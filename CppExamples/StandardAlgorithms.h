@@ -71,4 +71,4 @@ bool DescendingCondition(const StandardAlgorithmsExampleClass& lhs, const Standa
 
 void PrintVector(const std::vector<StandardAlgorithmsExampleClass>& InVector, char* InText);
 
-void main_StandardAlgorithmsExample();
+void executeStandardAlgorithmsExample();

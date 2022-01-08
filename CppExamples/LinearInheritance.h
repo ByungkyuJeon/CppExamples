@@ -124,4 +124,4 @@ public:
 	}
 };
 
-void main_LinearInheritanceExample();
+void executeLinearInheritanceExample();

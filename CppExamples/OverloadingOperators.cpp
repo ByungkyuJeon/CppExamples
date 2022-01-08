@@ -30,7 +30,7 @@ std::ostream& operator<<(std::ostream& stream, const OverloadingOperatorsExample
 		<< exampleClass.GetZ() << std::endl;
 }
 
-void main_OverloadingOperatorsExample()
+void executeOverloadingOperatorsExample()
 {
 	std::vector<OverloadingOperatorsExampleClass> exampleClass
 	{

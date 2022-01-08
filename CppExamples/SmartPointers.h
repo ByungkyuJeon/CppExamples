@@ -55,4 +55,4 @@ private:
 };
 
 
-void main_SmartPointersExample();
+void executeSmartPointersExample();
