@@ -148,5 +148,8 @@
     <ClInclude Include="DefineMacro.h">
       <Filter>Header\CppExamples</Filter>
     </ClInclude>
+    <ClInclude Include="Bitset.h">
+      <Filter>Header\CppExamples</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

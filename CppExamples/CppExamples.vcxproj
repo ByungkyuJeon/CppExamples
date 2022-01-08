@@ -158,6 +158,7 @@
     <ClCompile Include="VectorsArrays.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bitset.h" />
     <ClInclude Include="CastConversion.h" />
     <ClInclude Include="ClassMemorySize.h" />
     <ClInclude Include="CopyElision.h" />

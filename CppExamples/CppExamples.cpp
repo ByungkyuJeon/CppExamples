@@ -21,6 +21,7 @@
 #include "ObjectConstructorList.h"
 #include "CastConversion.h"
 #include "DefineMacro.h"
+#include "Bitset.h"
 
 int main()
 {
@@ -77,4 +78,7 @@ int main()
 
 	// 18. DefineMacro
 	//executeDefineMacroExample();
+
+	// 19. Bitset
+	executeBitset();
 }
