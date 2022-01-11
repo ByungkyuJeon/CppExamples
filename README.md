@@ -20,7 +20,7 @@ source codes contains :
 
 ## Tech/Framework Used
 
-* C++ 14
+* C++ 17
 
 ## Installation
 
