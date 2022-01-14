@@ -2,8 +2,20 @@
 
 // Object Constructor List Example
 // 
+// Specification 1
+// 
+// primitive types doesn't always automatically initialized
+// should be initialized explicitly
+// 
+// Specification 2 
+// 
 // compiler treats them as same when members are primitives
 // but when member is class type, using constructor list is more efficient
+//
+// Specification 3
+// 
+// member initiation order is same as the order of declaration
+// so when initializing explcitly, same initializing order to declared order is better
 
 class ObjectConstructorListExampleSource
 {
