@@ -175,4 +175,4 @@ void exampleFunc_ClassDesign()
 
 	example_ClassDesign_2 = example_ClassDesign_1 & 1; // casting works for both functions
 	example_ClassDesign_2 = 1 & example_ClassDesign_1; // casting works only when non-member function
-}
+} 
