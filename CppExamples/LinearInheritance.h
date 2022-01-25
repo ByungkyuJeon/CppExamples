@@ -96,6 +96,54 @@ public:
 	}
 };
 
+// Example child with public inheritance
+class LinearInheritanceExampleClass_Child_3 : public LinearInheritanceExampleClass_Parent
+{
+public:
+	void Print() override
+	{
+		// can access base's public variable
+		// treated as 'public'
+		std::cout << mNum_Public << std::endl;
+		// can access base's protected variable
+		// treated as 'protected'
+		std::cout << mNum_Protected << std::endl;
+		// std::cout << mNum_Private << std::endl; // can not access base's private variable
+	}
+};
+
+// Example child with protected inheritance
+class LinearInheritanceExampleClass_Child_4 : protected LinearInheritanceExampleClass_Parent
+{
+public:
+	void Print() override
+	{
+		// can access base's public variable
+		// treated as 'protected'
+		std::cout << mNum_Public << std::endl;
+		// can access base's protected variable
+		// treated as 'protected'
+		std::cout << mNum_Protected << std::endl;
+		// std::cout << mNum_Private << std::endl; // can not access base's private variable
+	}
+};
+
+// Example child with private inheritance
+class LinearInheritanceExampleClass_Child_5 : private LinearInheritanceExampleClass_Parent
+{
+public:
+	void Print() override
+	{
+		// can access base's public variable
+		// treated as 'private'
+		std::cout << mNum_Public << std::endl;
+		// can access base's protected variable
+		// treated as 'private'
+		std::cout << mNum_Protected << std::endl;
+		// std::cout << mNum_Private << std::endl; // can not access base's private variable
+	}
+};
+
 
 /// Example Abstract Parent Class
 /// 
