@@ -2,6 +2,7 @@
 
 #include <Thread>
 #include <mutex>
+#include <shared_mutex>
 
 // Threading with no param
 void operationWithNoParam()
@@ -274,5 +275,131 @@ void executeThreading()
 
 		std::cout << deadLockExample_1.num << std::endl;
 		std::cout << deadLockExample_2.num << std::endl;
+	}
+
+	// Shared Mutex Example
+	//
+	// shared mutex can help distinguish read / write operation 
+	// 
+	// allow shared mutex between read operations
+	// locks between read and write operations
+	std::cout << "--- shared mutex example ---" << std::endl;
+	{
+		struct SharedMutexExample
+		{
+			std::shared_mutex mtx;
+			int num = 0;
+		};
+
+		// Write
+		auto func_1 = [](SharedMutexExample& obj)
+		{
+			obj.mtx.lock(); // doesn't follow RAII, it's exclusive lock
+			//std::lock_guard<std::shared_mutex> lck(obj.mtx);
+			obj.num++;
+			obj.mtx.unlock(); // doesn't follow RAII, it's exclusive lock
+		};
+
+		// Read
+		auto func_2 = [](SharedMutexExample& obj, int& outNum)
+		{
+			obj.mtx.lock_shared(); // doesn't follow RAII, it's exclusive lock
+			//std::shared_lock<std::shared_mutex> lck(obj.mtx);
+			outNum = obj.num;
+			obj.mtx.unlock_shared(); // doesn't follow RAII, it's exclusive lock
+		};
+
+		SharedMutexExample sharedMutexExample;
+		int readable_1, readable_2;
+
+		std::thread threadExample_1(func_2, std::ref(sharedMutexExample), std::ref(readable_1));
+		std::thread threadExample_2(func_1, std::ref(sharedMutexExample));
+		std::thread threadExample_3(func_2, std::ref(sharedMutexExample), std::ref(readable_2));
+		std::thread threadExample_4(func_1, std::ref(sharedMutexExample));
+
+		threadExample_1.join();
+		threadExample_2.join();
+		threadExample_3.join();
+		threadExample_4.join();
+
+		std::cout << readable_1 << std::endl; // race condition might happen
+		std::cout << readable_2 << std::endl; // race condition might happen
+		std::cout << sharedMutexExample.num << std::endl;
+	}
+
+	// call_once standard library example
+	//
+	// this can be implemented by using mutex and boolean check
+	// but that process is less efficient than call_once library
+	//
+	// call_once can be used for construction function when handling those in multi-threading environment
+	std::cout << "--- call_once example ---" << std::endl;
+	{
+		std::once_flag flag;
+
+		auto func_1 = []()
+		{
+			std::cout << "Printed out" << std::endl;
+		};
+
+		auto func_2 = [&]()
+		{
+			std::call_once(flag, func_1);
+			// func_1();
+		};
+
+		std::thread threadExample_1(func_2);
+		std::thread threadExample_2(func_2);
+		std::thread threadExample_3(func_2);
+		std::thread threadExample_4(func_2);
+
+		threadExample_1.join();
+		threadExample_2.join();
+		threadExample_3.join();
+		threadExample_4.join();
+	}
+
+	// scoped static in multi-threading environment
+	//
+	// even in multi-threading, scoped static initialization is guaranteed to be executed once
+	// this feature is supported after C++11
+	std::cout << "--- socoped static example ---" << std::endl;
+	{
+		class Player
+		{
+		public:
+			Player() 
+			{
+				std::cout << "Player Constructed." << std::endl;
+			}
+		};
+
+		auto func = []()
+		{
+			// lazy initialization
+			static Player player;
+		};
+
+		std::thread threadExample_1(func);
+		std::thread threadExample_2(func);
+		std::thread threadExample_3(func);
+		std::thread threadExample_4(func);
+
+		threadExample_1.join();
+		threadExample_2.join();
+		threadExample_3.join();
+		threadExample_4.join();
+
+		// this feature also guarantees that singlton class is thread-safe
+		class Singleton
+		{
+		public:
+			static Singleton& getInstance()
+			{
+				// lazy initialization
+				static Singleton sObj;
+				return sObj;
+			}
+		};
 	}
 }
