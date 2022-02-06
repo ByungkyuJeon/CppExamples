@@ -163,4 +163,116 @@ void executeThreading()
 
 		std::cout << itemExample.num << std::endl;
 	}
+
+	// Dead Lock code
+	//
+	// waiting for never unlocking mutex
+	// commented second locking code will make self dead lock
+	// this can be occur easily by developers' fault.
+	// can be prevented by several standard locking libraries.
+	//
+	// case 1. self dead lock
+	{
+		std::mutex mutexExample;
+		std::lock_guard<std::mutex> lockGuard_1(mutexExample);
+		//std::lock_guard<std::mutex> lockGuard_2(mutexExample);
+
+		// 1) one way
+		std::recursive_mutex recurMutex;
+		std::lock_guard<std::recursive_mutex> lockGuardRecur_1(recurMutex);
+		std::lock_guard<std::recursive_mutex> lockGuardRecur_2(recurMutex);
+	}
+
+	// case 2. mutual dead lock
+	std::cout << "--- Mutual dead lock example ---" << std::endl;
+	{
+		struct DeadLockObj
+		{
+			std::mutex mtx;
+			int num = 0;
+		};
+
+		// func_1 tries to lock lhs's mutex first
+		auto func_1 = [](DeadLockObj& lhs, DeadLockObj& rhs) 
+		{
+			std::lock_guard<std::mutex> lck_1(lhs.mtx);
+			lhs.num++;
+			std::this_thread::sleep_for(std::chrono::duration<double, std::milli>(100));
+			std::lock_guard<std::mutex> lck_2(rhs.mtx);
+			rhs.num++;
+		};
+
+		// func_2 tries to lock rhs's mutex first
+		auto func_2 = [](DeadLockObj& lhs, DeadLockObj& rhs)
+		{
+			std::lock_guard<std::mutex> lck_1(rhs.mtx);
+			rhs.num++;
+			std::this_thread::sleep_for(std::chrono::duration<double, std::milli>(100));
+			std::lock_guard<std::mutex> lck_2(lhs.mtx);
+			lhs.num++;
+		};
+
+		DeadLockObj deadLockExample_1;
+		DeadLockObj deadLockExample_2;
+
+		std::thread threadExample_1(func_1, std::ref(deadLockExample_1) , std::ref(deadLockExample_2));
+		
+		// dead lock occcur when call func_1 and func_2 both at same.
+		// 
+		// locking order of mutex matter when locking more than two mutexes.
+		// 
+		//std::thread threadExample_2(func_2, deadLockExample_1, deadLockExample_2);
+
+		// calling both func_1 or func_2 doesn't occur dead lock
+		//
+		// because they both are waiting for the same mutex to be unlocked or locked
+		std::thread threadExample_2(func_1, std::ref(deadLockExample_1), std::ref(deadLockExample_2));
+
+		threadExample_1.join();
+		threadExample_2.join();
+
+		std::cout << deadLockExample_1.num << std::endl;
+		std::cout << deadLockExample_2.num << std::endl;
+	}
+
+	// Scoped Lock standard locking library example
+	//
+	// above code is conidering the order of locking code line to avoid dead lock
+	// those way is vulnerable to the faults from developers
+	// 
+	// so there is standard library for that solution such as scoped lock bellow
+	std::cout << "--- scoped lock example ---" << std::endl;
+	{
+		struct DeadLockObj
+		{
+			std::mutex mtx;
+			int num = 0;
+		};
+
+		auto func_1 = [](DeadLockObj& lhs, DeadLockObj& rhs)
+		{
+			std::scoped_lock<std::mutex, std::mutex> lck_1(lhs.mtx, rhs.mtx);
+			lhs.num++;
+			rhs.num++;
+		};
+
+		auto func_2 = [](DeadLockObj& lhs, DeadLockObj& rhs)
+		{
+			std::scoped_lock<std::mutex, std::mutex> lck_1(rhs.mtx, lhs.mtx);
+			rhs.num++;
+			lhs.num++;
+		};
+
+		DeadLockObj deadLockExample_1;
+		DeadLockObj deadLockExample_2;
+		
+		std::thread threadExample_1(func_1, std::ref(deadLockExample_1), std::ref(deadLockExample_2));
+		std::thread threadExample_2(func_2, std::ref(deadLockExample_1), std::ref(deadLockExample_2));
+
+		threadExample_1.join();
+		threadExample_2.join();
+
+		std::cout << deadLockExample_1.num << std::endl;
+		std::cout << deadLockExample_2.num << std::endl;
+	}
 }
