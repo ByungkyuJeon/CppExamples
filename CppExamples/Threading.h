@@ -3,6 +3,7 @@
 #include <Thread>
 #include <mutex>
 #include <shared_mutex>
+#include <condition_variable>
 
 // Threading with no param
 void operationWithNoParam()
@@ -402,4 +403,84 @@ void executeThreading()
 			}
 		};
 	}
+
+	// Condition variable example
+	//
+	// using condition variable, other thread can wakeup another thread which is in blocked state
+	std::cout << "--- condition variable example ---" << std::endl;
+	// wrong example
+	//
+	// 'lost wakeup' can happen bellow
+	{
+		std::mutex mtx;
+		std::condition_variable cv;
+
+		auto waitFunc = [&]()
+		{
+			std::cout << "wait" << std::endl;
+			std::unique_lock<std::mutex> lck(mtx);
+			cv.wait(lck);
+			std::cout << "re run" << std::endl;
+		};
+
+		// if bellow signal function is called before condition_variable's wait function, 'lost wakeup' happen.
+		auto signalFunc = [&]()
+		{
+			std::cout << "signal" << std::endl;
+			cv.notify_one();
+		};
+
+		std::thread threadExample_1(waitFunc);
+		std::thread threadExample_2(signalFunc);
+
+		threadExample_1.join();
+		threadExample_2.join();
+	}
+
+	// right example
+	//
+	// 'lost wakeup' and 'spurious wakeup' prevented
+	{
+		bool readyFlag = false;
+		std::mutex mtx;
+		std::condition_variable cv;
+
+		auto waitFunc = [&]()
+		{
+			std::cout << "wait" << std::endl;
+			std::unique_lock<std::mutex> lck(mtx);
+			// prevent notifying before wait
+			// case 1 : using wait function arg
+			// cv.wait(lck, []{return readyFlag;});
+
+			// case 2 : checking with while loop
+			while (!readyFlag)
+			{
+				// mutex lock released when waiting
+				cv.wait(lck);
+				// mutex will be locked when waiting ends
+			}
+			// critical section
+
+			std::cout << "re run" << std::endl;
+		};
+
+		// if bellow signal function is called before condition_variable's wait function, 'lost wakeup' happen.
+		auto signalFunc = [&]()
+		{
+			std::cout << "signal" << std::endl;
+			{
+				std::lock_guard<std::mutex> lck(mtx);
+				readyFlag = true;
+			}
+			cv.notify_one();
+		};
+
+		std::thread threadExample_1(waitFunc);
+		std::thread threadExample_2(signalFunc);
+
+		threadExample_1.join();
+		threadExample_2.join();
+	}
+
 }
