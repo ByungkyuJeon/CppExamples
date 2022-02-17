@@ -4,6 +4,7 @@
 #include <mutex>
 #include <shared_mutex>
 #include <condition_variable>
+#include <queue>
 
 // Threading with no param
 void operationWithNoParam()
@@ -483,4 +484,53 @@ void executeThreading()
 		threadExample_2.join();
 	}
 
+	// Producer Consumer pattern
+	//
+	// pattern for handling jobs using job queue
+	{
+		class Job
+		{
+		public:
+			Job() : mJobNumber{ 0 } {}
+			Job(int num) : mJobNumber{ num } {}
+		private:
+			int mJobNumber;
+		};
+
+		class JobQueue
+		{
+		public:
+			// producer
+			void addJob(Job job)
+			{
+				{
+					std::lock_guard<std::mutex> lck(mMtx);
+					mQueue.emplace(job);
+				}
+				mCv.notify_one();
+			}
+
+			// consumer
+			Job getJob()
+			{
+				std::unique_lock<std::mutex> lck(mMtx);
+				while (mQueue.empty())
+				{
+					mCv.wait(lck);
+				}
+				Job ret = std::move(mQueue.front());
+				mQueue.pop();
+				return ret;
+
+				return Job();
+			}
+
+		private:
+			std::queue<Job> mQueue;
+			std::mutex mMtx;
+			std::condition_variable mCv;
+		};
+
+		
+	}
 }
