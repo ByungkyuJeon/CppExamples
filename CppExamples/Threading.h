@@ -5,6 +5,7 @@
 #include <shared_mutex>
 #include <condition_variable>
 #include <queue>
+#include <future>
 
 // Threading with no param
 void operationWithNoParam()
@@ -530,7 +531,36 @@ void executeThreading()
 			std::mutex mMtx;
 			std::condition_variable mCv;
 		};
+	}
 
-		
+	// async, future, promise
+	//
+	// high level threading library
+	// well-readable but slow
+	//
+	// for making communication channel between future and promise 
+	// needs heap, mutex, condition variable, reference counter operations
+	// so that makes async library run time slower than raw multithreading with mutex, condition variables
+	std::cout << "--- async example ---" << std::endl;
+	{
+		using namespace std::chrono_literals;
+		auto func = [](std::promise<int> prm)
+		{
+			std::this_thread::sleep_for(std::chrono::duration<double, std::milli>(2000));
+			//prm.set_value(100);
+			prm.set_value_at_thread_exit(100);
+		};
+
+		std::promise<int> prm;
+		std::future<int> fut = prm.get_future();
+
+		std::thread threadExample(func, std::move(prm));
+		while (fut.wait_for(0.2s) != std::future_status::ready)
+		{
+			std::cout << "working other operation" << std::endl;
+		}
+		int ret = fut.get();
+		std::cout << "returned : " << ret << std::endl;
+		threadExample.join();
 	}
 }
