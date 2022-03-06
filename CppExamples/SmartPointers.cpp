@@ -89,4 +89,28 @@ void executeSmartPointersExample()
 
 	/// scope ended, locking operation expired
 	std::cout << "weak pointer's reference count : " << examplePtr_Weak.use_count() << std::endl;
+
+	/// PASSING SHARED POINTER MY REFERENCE
+	std::cout << "--- PASSING SHARED POINTER MY REFERENCE ---" << std::endl;
+	{
+		auto func_byVal = [](std::shared_ptr<int> ptr)
+		{
+			std::shared_ptr<int> temp = ptr;
+			std::cout << temp.use_count() << std::endl;
+		};
+
+		auto func_byRef = [](const std::shared_ptr<int>& ptr)
+		{
+			std::shared_ptr<int> temp = ptr;
+			std::cout << temp.use_count() << std::endl;
+		};
+
+		std::shared_ptr<int> examplePtr = std::make_shared<int>(1);
+		std::cout << examplePtr.use_count() << std::endl;
+
+		func_byVal(examplePtr);
+		func_byRef(examplePtr);
+
+		std::cout << examplePtr.use_count() << std::endl;
+	}
 }
