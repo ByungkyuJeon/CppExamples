@@ -16,8 +16,6 @@ void callingFunction(int a, int b, int c) // prints 10, 15, 17
 }
 
 // failing example
-//
-//
 class Player
 {
 public:

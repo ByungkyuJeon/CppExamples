@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+// General Cpp Examples
 #include "ClassMemorysize.h"
 #include "CopyElision.h"
 #include "FunctionRVO.h"
@@ -22,6 +23,18 @@
 #include "CastConversion.h"
 #include "DefineMacro.h"
 #include "Bitset.h"
+#include "Templates.h"
+#include "TypeDeduction.h"
+#include "StackRewinding.h"
+#include "Threading.h"
+#include "MemoryTracking.h"
+
+// Effective C++ 3rd
+#include "EffectiveCpp/ParameterEvaluation.h"
+#include "EffectiveCpp/AvoidingCasting.h"
+#include "EffectiveCpp/TemplateMetaProgramming.h"
+
+// Effective Modern C++
 
 int main()
 {
@@ -80,5 +93,29 @@ int main()
 	//executeDefineMacroExample();
 
 	// 19. Bitset
-	executeBitset();
+	//executeBitset();
+
+	// 20. Templates
+	//executeTemplatesExample();
+
+	// 21. TypeDeduction
+	//executeTypeDeduction();
+
+	// 22. StackRewinding
+	//executeStackRewinding();
+
+	// 23. ParameterEvaluation
+	//executeParameterEvaluationExample();
+
+	// 24. AvoidingCasting
+	//executeAvoidingCasting();
+
+	// 25. TMP (Template Meta Programming)
+	//executeTemplateMetaProgramming();
+
+	// 26. Threading
+	//executeThreading();
+
+	// 27. MemoryTracking
+	executeMemoryTracking();
 }

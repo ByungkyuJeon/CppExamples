@@ -1,3 +1,3 @@
 #include "DefineAlternatives.h"
 
-const int Player::NumTurns = 5;
+const int Player::NumTurns;

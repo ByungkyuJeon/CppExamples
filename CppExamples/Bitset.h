@@ -6,20 +6,18 @@
 // 비트 뺄셈
 //
 // STL bitset 에서 기본적으로 지원하지 않음
-std::bitset<10> substract(const std::bitset<10>& lhs, const std::bitset<10>& rhs)
+std::bitset<10> substract(std::bitset<10> lhs, std::bitset<10> rhs)
 {
-	std::bitset<10> rhsTemp = rhs;
 	std::bitset<10> borrow;
-	std::bitset<10> result;
 
-	while (rhsTemp.any())
+	while (rhs.any())
 	{
-		borrow = ~lhs & rhsTemp;
-		result = lhs ^ rhsTemp;
-		rhsTemp = borrow << 1;
+		borrow = ~lhs & rhs;
+		lhs = lhs ^ rhs;
+		rhs = borrow << 1;
 	}
 
-	return result;
+	return lhs;
 }
 
 // 비트 덧셈
@@ -62,7 +60,9 @@ void executeBitset()
 		std::cout << bitsetExample[0] << '\n';
 
 		// bit-shift left
-		bitsetExample = bitsetExample << 3;
+		std::cout << "bit-shift left" << '\n';
+		std::cout << bitsetExample << '\n';
+		std::cout << (bitsetExample << 3) << '\n';
 		std::cout << bitsetExample << '\n';
 
 		// bit-shift right
@@ -79,14 +79,14 @@ void executeBitset()
 	{
 		std::bitset<10> bitsetExample{ 50 };
 		std::cout << bitsetExample << '\n';
-		std::bitset<10> bitsetExample2{ 18 };
+		std::bitset<10> bitsetExample2{ 17 };
 		std::cout << bitsetExample2 << '\n';
 		std::cout << substract(bitsetExample, bitsetExample2) << '\n';
 		std::cout << substract(bitsetExample, bitsetExample2).to_ulong() << '\n';
 	}
 
 	// bit-add operation
-	std::cout << "bit substraction" << '\n';
+	std::cout << "bit add" << '\n';
 	{
 		std::bitset<10> bitsetExample{ 50 };
 		std::cout << bitsetExample << '\n';
@@ -95,6 +95,4 @@ void executeBitset()
 		std::cout << add(bitsetExample, bitsetExample2) << '\n';
 		std::cout << add(bitsetExample, bitsetExample2).to_ulong() << '\n';
 	}
-
-	
 }
