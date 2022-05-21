@@ -29,26 +29,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -154,6 +154,7 @@
     <ClCompile Include="FunctionRVO.cpp" />
     <ClCompile Include="LinearInheritance.cpp" />
     <ClCompile Include="MembersInit.cpp" />
+    <ClCompile Include="MemoryPool.cpp" />
     <ClCompile Include="MultipleInheritance.cpp" />
     <ClCompile Include="ObjectSlicing.cpp" />
     <ClCompile Include="OverloadingOperators.cpp" />
@@ -164,6 +165,7 @@
     <ClCompile Include="VectorsArrays.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Defines.h" />
     <ClInclude Include="EffectiveCpp\AvoidingCasting.h" />
     <ClInclude Include="Bitset.h" />
     <ClInclude Include="CastConversion.h" />
@@ -191,6 +193,7 @@
     <ClInclude Include="FunctionRVO.h" />
     <ClInclude Include="LinearInheritance.h" />
     <ClInclude Include="MembersInit.h" />
+    <ClInclude Include="MemoryPool.h" />
     <ClInclude Include="MemoryTracking.h" />
     <ClInclude Include="MultipleInheritance.h" />
     <ClInclude Include="ObjectConstructorList.h" />
@@ -208,6 +211,9 @@
     <ClInclude Include="TimeChecker.h" />
     <ClInclude Include="TypeDeduction.h" />
     <ClInclude Include="VectorsArrays.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MemoryPool.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

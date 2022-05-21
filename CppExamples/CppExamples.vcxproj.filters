@@ -92,6 +92,9 @@
     <ClCompile Include="EffectiveCpp\DefineAlternatives.cpp">
       <Filter>Source\CppExamples\EffectiveCpp</Filter>
     </ClCompile>
+    <ClCompile Include="MemoryPool.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassMemorySize.h">
@@ -226,5 +229,16 @@
     <ClInclude Include="MemoryTracking.h">
       <Filter>Header\CppExamples</Filter>
     </ClInclude>
+    <ClInclude Include="MemoryPool.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Defines.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MemoryPool.inl">
+      <Filter>Source</Filter>
+    </None>
   </ItemGroup>
 </Project>

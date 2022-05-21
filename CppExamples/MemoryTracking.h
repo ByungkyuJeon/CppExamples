@@ -2,7 +2,7 @@
 
 #include <stack>
 
-#define TRACK_MEMORY_SWITCH true
+#define TRACK_MEMORY_SWITCH false
 
 #if TRACK_MEMORY_SWITCH
 #ifndef TRACK_MEMORY

@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 // General Cpp Examples
+#include "Defines.h"
 #include "ClassMemorysize.h"
 #include "CopyElision.h"
 #include "FunctionRVO.h"
@@ -28,6 +29,7 @@
 #include "StackRewinding.h"
 #include "Threading.h"
 #include "MemoryTracking.h"
+#include "MemoryPool.h"
 
 // Effective C++ 3rd
 #include "EffectiveCpp/ParameterEvaluation.h"
@@ -35,6 +37,12 @@
 #include "EffectiveCpp/TemplateMetaProgramming.h"
 
 // Effective Modern C++
+
+class MemoryObject
+{
+	int x;
+	float e;
+};
 
 int main()
 {
@@ -117,5 +125,36 @@ int main()
 	//executeThreading();
 
 	// 27. MemoryTracking
-	executeMemoryTracking();
+	//executeMemoryTracking();
+
+	CreateMemoryPool<MemoryObject>();
+
+	auto func1 = []()
+	{
+		for (int count = 0; count < 1000; count++)
+		{
+			for (int i = 0; i < 1000; i++)
+			{
+				MemoryObject* obj = bknew<MemoryObject>();
+				bkfree<MemoryObject>(obj);
+			}
+		}
+	};
+
+	auto func2 = []()
+	{
+		for (int count = 0; count < 1000; count++)
+		{
+			for (int i = 0; i < 1000; i++)
+			{
+				MemoryObject* obj = new MemoryObject();
+				delete(obj);
+			}
+		}
+	};
+
+	double time = TimeChecker::CheckTime(func1);
+	std::cout << time << "ms" << std::endl;
+	time = TimeChecker::CheckTime(func2);
+	std::cout << time << "ms" << std::endl;
 }
