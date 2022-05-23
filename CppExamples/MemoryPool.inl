@@ -64,7 +64,6 @@ PoolType* MemoryPool<PoolType>::GetAllocatablePtr(size_t InSize)
 	m_IsSlotUsing[memIdx] = true;
 	m_LastAllocatedIndex = memIdx;
 	m_CurrentAllocatedCount += 1;
-	m_MemoryMap[&m_Pool[memIdx]] = memIdx;
 
 	return &m_Pool[memIdx];
 }
@@ -72,11 +71,6 @@ PoolType* MemoryPool<PoolType>::GetAllocatablePtr(size_t InSize)
 template<typename PoolType>
 void MemoryPool<PoolType>::FreeMemory(PoolType* InMem)
 {
-	if (m_MemoryMap.find(InMem) == m_MemoryMap.end())
-		return;
-
-	m_IsSlotUsing[m_MemoryMap[InMem]] = false;
+	m_IsSlotUsing[InMem - m_Pool] = false;
 	m_CurrentAllocatedCount -= 1;
-
-	m_MemoryMap.erase(InMem);
 }

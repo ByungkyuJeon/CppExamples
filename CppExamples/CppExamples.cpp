@@ -131,25 +131,19 @@ int main()
 
 	auto func1 = []()
 	{
-		for (int count = 0; count < 1000; count++)
+		for (int count = 0; count < 10000; count++)
 		{
-			for (int i = 0; i < 1000; i++)
-			{
-				MemoryObject* obj = bknew<MemoryObject>();
-				bkfree<MemoryObject>(obj);
-			}
+			MemoryObject* obj = bknew<MemoryObject>();
+			bkfree<MemoryObject>(obj);
 		}
 	};
 
 	auto func2 = []()
 	{
-		for (int count = 0; count < 1000; count++)
+		for (int count = 0; count < 10000; count++)
 		{
-			for (int i = 0; i < 1000; i++)
-			{
-				MemoryObject* obj = new MemoryObject();
-				delete(obj);
-			}
+			MemoryObject* obj = new MemoryObject();
+			delete(obj);
 		}
 	};
 

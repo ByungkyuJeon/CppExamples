@@ -1,6 +1,5 @@
 #pragma once
 
-#include <unordered_map>
 #include "Defines.h"
 
 template<typename PoolType>
@@ -21,7 +20,6 @@ private:
 	size_t m_LastAllocatedIndex = 0;
 	size_t m_CurrentAllocatedCount = 0;
 	size_t m_PoolSize = DEFAULT_MEMORY_POOL_SIZE;
-	std::unordered_map<PoolType*, size_t> m_MemoryMap;
 };
 
 template<typename PoolType>
