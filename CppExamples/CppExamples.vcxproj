@@ -78,6 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -124,6 +126,12 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreBuildEvent>
+      <Command>call C:\BuildStartEvent.bat</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>call C:\BuildEndEvent.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -165,6 +173,7 @@
     <ClCompile Include="VectorsArrays.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataStructureTypes.h" />
     <ClInclude Include="Defines.h" />
     <ClInclude Include="EffectiveCpp\AvoidingCasting.h" />
     <ClInclude Include="Bitset.h" />
@@ -205,6 +214,7 @@
     <ClInclude Include="StackRewinding.h" />
     <ClInclude Include="StandardAlgorithms.h" />
     <ClInclude Include="StandardDataStructure.h" />
+    <ClInclude Include="StaticArray.h" />
     <ClInclude Include="StorageClassSpecifiers.h" />
     <ClInclude Include="Templates.h" />
     <ClInclude Include="Threading.h" />

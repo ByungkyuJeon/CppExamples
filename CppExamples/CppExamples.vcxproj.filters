@@ -33,6 +33,12 @@
     <Filter Include="Header\CppExamples\EffectiveModernCpp">
       <UniqueIdentifier>{a76ef396-fe53-4e48-a927-86168be47c4e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\CustomDataStructures">
+      <UniqueIdentifier>{0eacae38-7835-42b1-b247-4505f1946ecc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\CustomDataStructure">
+      <UniqueIdentifier>{0bd39cb5-a72c-4b4e-b9fb-b78198f82183}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppExamples.cpp">
@@ -234,6 +240,12 @@
     </ClInclude>
     <ClInclude Include="Defines.h">
       <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticArray.h">
+      <Filter>Header\CustomDataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStructureTypes.h">
+      <Filter>Header\CustomDataStructure</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

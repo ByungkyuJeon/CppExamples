@@ -30,6 +30,7 @@
 #include "Threading.h"
 #include "MemoryTracking.h"
 #include "MemoryPool.h"
+#include "StaticArray.h"
 
 // Effective C++ 3rd
 #include "EffectiveCpp/ParameterEvaluation.h"
@@ -127,7 +128,8 @@ int main()
 	// 27. MemoryTracking
 	//executeMemoryTracking();
 
-	CreateMemoryPool<MemoryObject>();
+	// 28. MemoryPool
+	/*CreateMemoryPool<MemoryObject>();
 
 	auto func1 = []()
 	{
@@ -150,5 +152,32 @@ int main()
 	double time = TimeChecker::CheckTime(func1);
 	std::cout << time << "ms" << std::endl;
 	time = TimeChecker::CheckTime(func2);
-	std::cout << time << "ms" << std::endl;
+	std::cout << time << "ms" << std::endl;*/
+
+	// 29. Static Array
+	StaticArray<int, 1000> testArray;
+	int arr[1000];
+
+	double time;
+	time = TimeChecker::CheckTime([&]()
+	{
+		for (int idx = 0; idx < 1000; idx++)
+		{
+			arr[idx] = 1;
+			arr[idx];
+		}
+	});
+
+	std::cout << "origin : " << time << " ms" << std::endl;
+
+	time = TimeChecker::CheckTime([&]()
+	{
+		for (int idx = 0; idx < 1000; idx++)
+		{
+			testArray[idx] = 1;
+			testArray[idx];
+		}
+	});
+
+	std::cout << "custom : " << time << " ms" << std::endl;
 }
